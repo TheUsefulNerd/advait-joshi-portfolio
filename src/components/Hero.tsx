@@ -42,7 +42,7 @@ export function Hero() {
           </div>
 
          <div className="flex flex-wrap gap-4">
-          <a href="public/Advait Joshi Resume.pdf" download>
+          <a href="Advait Joshi Resume.pdf" download>
             <Button
               variant="default"
               className="bg-gradient-to-r from-purple to-blue hover:from-purple-dark hover:to-blue-dark"
