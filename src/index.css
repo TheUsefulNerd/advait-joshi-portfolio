@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Advait Joshi Portfolio Design System - Dark theme with purple, blue, pink accents */
+
+@layer base {
+  :root {
+    /* Dark theme base colors */
+    --background: 240 10% 3.9%;
+    --background-secondary: 240 6% 8%;
+    --background-tertiary: 240 5% 12%;
+    --foreground: 0 0% 98%;
+    --foreground-muted: 240 5% 64.9%;
+
+    /* Card system */
+    --card: 240 6% 8%;
+    --card-foreground: 0 0% 98%;
+    --card-hover: 240 5% 12%;
+
+    /* Purple palette */
+    --purple: 262.1 83.3% 57.8%;
+    --purple-light: 270 91% 65%;
+    --purple-dark: 258 90% 45%;
+    --purple-foreground: 0 0% 98%;
+
+    /* Blue palette */
+    --blue: 217.2 91.2% 59.8%;
+    --blue-light: 221 83% 70%;
+    --blue-dark: 217 91% 50%;
+    --blue-foreground: 0 0% 98%;
+
+    /* Pink palette */
+    --pink: 328.4 85.5% 70.2%;
+    --pink-light: 330 81% 75%;
+    --pink-dark: 326 85% 60%;
+    --pink-foreground: 0 0% 98%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--purple)) 0%, hsl(var(--blue)) 50%, hsl(var(--pink)) 100%);
+    --gradient-purple-blue: linear-gradient(135deg, hsl(var(--purple)) 0%, hsl(var(--blue)) 100%);
+    --gradient-blue-pink: linear-gradient(135deg, hsl(var(--blue)) 0%, hsl(var(--pink)) 100%);
+    
+    /* Effects */
+    --glow-purple: 0 0 30px hsl(var(--purple) / 0.3);
+    --glow-blue: 0 0 30px hsl(var(--blue) / 0.3);
+    --glow-pink: 0 0 30px hsl(var(--pink) / 0.3);
+
+    /* Semantic tokens */
+    --primary: var(--purple);
+    --primary-foreground: var(--purple-foreground);
+    --secondary: var(--background-secondary);
+    --secondary-foreground: var(--foreground);
+    --accent: var(--blue);
+    --accent-foreground: var(--blue-foreground);
+    --muted: var(--background-tertiary);
+    --muted-foreground: var(--foreground-muted);
+
+    --border: 240 5% 18%;
+    --input: 240 5% 18%;
+    --ring: var(--purple);
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --radius: 0.75rem;
+
+    /* Animation durations */
+    --duration-fast: 0.2s;
+    --duration-normal: 0.3s;
+    --duration-slow: 0.5s;
+
+    /* Transitions */
+    --transition-smooth: all var(--duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all var(--duration-normal) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Portfolio-specific animations */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .orbit-animation {
+    animation: orbit 8s linear infinite;
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  .curtain-reveal {
+    animation: curtain-reveal 0.8s ease-out forwards;
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass morphism cards */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer utilities {
+  /* Custom keyframes */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes orbit {
+    from {
+      transform: rotate(0deg) translateX(120px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(120px) rotate(-360deg);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: var(--glow-purple);
+    }
+    100% {
+      box-shadow: var(--glow-blue);
+    }
+  }
+
+  @keyframes curtain-reveal {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  @keyframes soundwave {
+    0%, 100% {
+      transform: scaleY(1);
+    }
+    50% {
+      transform: scaleY(1.5);
+    }
+  }
+
+  .soundwave-animation {
+    animation: soundwave 1.5s ease-in-out infinite;
+  }
+}
