@@ -1,6 +1,6 @@
 later.txt
-Research.tsx
-OpenSource.tsx
+src/pages/Research.tsx
+src/pages/OpenSource.tsx
 
 # Logs
 logs
