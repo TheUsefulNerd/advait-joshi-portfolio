@@ -7,24 +7,24 @@ const experiences = [
     title: 'ML Engineer Intern',
     company: 'TechPeek',
     location: 'Remote',
-    duration: 'June 2024 - Present',
+    duration: 'September 2025 - Present',
     type: 'Current',
-    description: 'Developing machine learning models for predictive analytics and data-driven solutions. Working on advanced algorithms for pattern recognition and automated decision-making systems.',
+    description: 'Building and extending ActivityWatch into a deployable product using Flask, Peewee, and REST APIs, while integrating small language models to improve event tracking intelligence.',
     achievements: [
-      'Improved model accuracy by 25% through feature engineering',
-      'Implemented scalable ML pipelines using Python and TensorFlow',
-      'Collaborated with cross-functional teams on product development',
-      'Optimized model performance for real-time applications'
+      'Revamping ActivityWatch, an open-source offline work tracker, into a commercial product, enhancing performance, scalability, and user experience for launch.',
+      'Developing full-stack features using Flask, Peewee ORM, and SQLite, building new frontend pages and backend APIs for seamless data synchronization and event tracking.',
+      'Integrating small language models (SLMs) to enable intelligent categorization and context-aware tracking of user activities.',
+      'Collaborating on REST API design, memory architecture, and abstract memory modules to ensure efficient event storage, retrieval, and model inference integration.'
     ],
-    skills: ['Python', 'TensorFlow', 'Machine Learning', 'Data Analysis', 'MLOps'],
+    skills: ['Python', 'Flask', 'Peewee ORM', 'SQLite', 'REST API Development', 'Frontend Development (React.js/Vue.js)','LLMOps', 'API Integration & Testing', 'Version Control'],
     color: 'purple'
   },
   {
     title: 'AI Engineer Intern',
-    company: 'DRDO (Defence Research and Development Organisation)',
-    location: 'India',
-    duration: 'March 2024 - May 2024',
-    type: 'Completed',
+    company: 'DRDO RCI(Research Centre Imarat),',
+    location: 'Hyderabad, India',
+    duration: 'August 2025 - October 2025',
+    type: 'Current',
     description: 'Worked on artificial intelligence applications for defense technologies. Contributed to research and development of AI systems for strategic applications.',
     achievements: [
       'Developed AI algorithms for pattern recognition in defense systems',
@@ -38,9 +38,9 @@ const experiences = [
   {
     title: 'Research Intern',
     company: 'Indian Institute of Technology (IIT) Kanpur',
-    location: 'Kanpur, India',
-    duration: 'December 2023 - February 2024',
-    type: 'Research',
+    location: 'Remote',
+    duration: 'June 2025 - Present',
+    type: 'Current',
     description: 'Conducted cutting-edge research in machine learning and artificial intelligence under the guidance of renowned faculty members.',
     achievements: [
       'Published research findings in conference proceedings',
@@ -54,9 +54,9 @@ const experiences = [
   {
     title: 'Research Intern',
     company: 'Indian Institute of Technology (IIT) Patna',
-    location: 'Patna, India',
-    duration: 'September 2023 - November 2023',
-    type: 'Research',
+    location: 'Remote',
+    duration: 'April 2025 - Present',
+    type: 'Current',
     description: 'Focused on advanced machine learning techniques and their applications in real-world scenarios. Worked on interdisciplinary research projects.',
     achievements: [
       'Implemented state-of-the-art ML models for data classification',
@@ -71,18 +71,35 @@ const experiences = [
     title: 'Blockchain Developer Intern',
     company: 'Inspiring Wave',
     location: 'Remote',
-    duration: 'June 2023 - August 2023',
+    duration: 'April 2025 - August 2025',
     type: 'Completed',
-    description: 'Developed decentralized applications and smart contracts. Gained expertise in blockchain technology and cryptocurrency ecosystems.',
+    description:
+      'As a Blockchain Developer Intern, I led the end-to-end development of a meme-coin project on the Base chain, contributing to smart contract design, tokenomics, and project strategy while managing a 13-member cross-functional team.',
     achievements: [
-      'Built and deployed smart contracts on Ethereum blockchain',
-      'Developed DApp interfaces using React and Web3.js',
-      'Implemented security best practices for blockchain applications',
-      'Contributed to tokenomics design and implementation'
+      'Led the development of a meme-coin project inspired by narrative-driven crypto culture on the Base chain.',
+      'Oversaw end-to-end smart contract architecture and development as the sole blockchain developer.',
+      'Managed and coordinated a 13-member cross-functional team across smart contracts, marketing, design, and research.',
+      'Co-led marketing and community growth efforts, contributing to brand narrative and go-to-market planning.',
+      'Designed the overall project structure, sprint cycles, and team workflows to align progress across functions.'
     ],
+    notes: '(Project was in active development during internship tenure.)',
     skills: ['Solidity', 'Ethereum', 'Smart Contracts', 'Web3.js', 'DApp Development'],
     color: 'blue'
-  }
+  },
+
+  {
+    title: 'Summer of AI Intern',
+    company: 'Swecha Telangana',
+    location: 'Hyderabad, India',
+    duration: 'May 2024 - June 2024',
+    type: 'Completed',
+    description: ' Contributed to the development of an advanced Telugu Language Model (LLM) and Text-to-Speech (TTS) Voice Avatar.',
+    achievements: [
+      'Collaborated on building the world’s first supercomputing cluster for AI with Meta, IIIT Hyderabad, Ozonetel, and TASK'
+    ],
+    skills: ['Artificial Intelligence', 'Neural Networks', 'Data Analysis', 'Ubuntu', 'OS Development', 'Python', 'Research'],
+    color: 'pink'
+  },
 ];
 
 import { Footer } from '@/components/Footer';
@@ -182,6 +199,12 @@ const Experience = () => {
                           ))}
                         </ul>
                       </div>
+
+                        {exp.notes && (
+                        <p className="text-xs mb-4 leading-relaxed">
+                          {exp.notes}
+                        </p>
+                      )}
 
                       {/* Skills */}
                       <div>

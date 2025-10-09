@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { 
-  Mail, Phone, MapPin, Linkedin, Github, Twitter, 
+  Mail, Phone, MapPin, Linkedin, Github, Twitter, Instagram,
   Send, Calendar, MessageSquare 
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -55,21 +55,21 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'advait.joshi@example.com',
-      href: 'mailto:advait.joshi@example.com',
+      value: 'advait.official.work@gmail.com',
+      href: 'mailto:advait.official.work@gmail.com',
       color: 'purple'
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+91 XXXXX XXXXX',
-      href: 'tel:+91XXXXXXXXX',
+      value: '+91 9515445545',
+      href: 'tel:+919515445545',
       color: 'blue'
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'Gujarat, India',
+      value: 'Hyderabad, India',
       href: '#',
       color: 'pink'
     }
@@ -79,27 +79,27 @@ const Contact = () => {
     {
       icon: Linkedin,
       name: 'LinkedIn',
-      href: '#',
+      href: 'https://linkedin.com/in/advaitszone',
       color: 'bg-blue-600 hover:bg-blue-700'
     },
     {
       icon: Github,
       name: 'GitHub',
-      href: '#',
+      href: 'https://github.com/TheUsefulNerd',
       color: 'bg-gray-800 hover:bg-gray-900'
     },
     {
       icon: Twitter,
       name: 'Twitter',
-      href: '#',
+      href: 'https://x.com/advaitszone',
       color: 'bg-blue-500 hover:bg-blue-600'
     },
     {
-      icon: MessageSquare,
-      name: 'Discord',
-      href: '#',
+      icon: Instagram,
+      name: 'Instagram',
+      href: 'https://www.instagram.com/theusefulnerd?igsh=MTE0N2UzZjZnZ2FndQ==',
       color: 'bg-purple-600 hover:bg-purple-700'
-    }
+    },
   ];
 
   return (
@@ -285,11 +285,11 @@ const Contact = () => {
               {[
                 {
                   question: "What type of projects do you work on?",
-                  answer: "I specialize in ML/AI projects, blockchain applications, and full-stack web development. I'm particularly interested in projects that solve real-world problems."
+                  answer: "I specialize in ML/AI projects, and full-stack web development. I'm particularly interested in projects that solve real-world problems."
                 },
                 {
                   question: "Are you available for internships?",
-                  answer: "Yes! I'm always looking for exciting internship opportunities, especially in ML engineering, AI research, and blockchain development."
+                  answer: "Yes! I'm always looking for exciting internship opportunities, especially in ML engineering, AI research, and Software development."
                 },
                 {
                   question: "Do you offer mentoring or consultations?",

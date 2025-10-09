@@ -7,22 +7,21 @@ const skillCategories = [
     title: 'Programming Languages',
     skills: [
       { name: 'Python', level: 95, color: 'from-blue-500 to-blue-600' },
-      { name: 'JavaScript/TypeScript', level: 90, color: 'from-yellow-500 to-yellow-600' },
-      { name: 'Solidity', level: 85, color: 'from-purple-500 to-purple-600' },
-      { name: 'Java', level: 80, color: 'from-red-500 to-red-600' },
-      { name: 'C/C++', level: 75, color: 'from-green-500 to-green-600' },
-      { name: 'R', level: 70, color: 'from-pink-500 to-pink-600' }
+      { name: 'SQL', level: 90, color: 'from-pink-500 to-pink-600' },
+      { name: 'JavaScript/TypeScript', level: 70, color: 'from-yellow-500 to-yellow-600' },
+      { name: 'Solidity', level: 40, color: 'from-purple-500 to-purple-600' },
+      { name: 'C/C++', level: 95, color: 'from-green-500 to-green-600' }
     ]
   },
   {
     title: 'Machine Learning & AI',
     skills: [
-      { name: 'TensorFlow', level: 90, color: 'from-orange-500 to-orange-600' },
       { name: 'PyTorch', level: 88, color: 'from-red-500 to-red-600' },
-      { name: 'Scikit-learn', level: 92, color: 'from-blue-500 to-blue-600' },
-      { name: 'Computer Vision', level: 85, color: 'from-purple-500 to-purple-600' },
-      { name: 'NLP', level: 82, color: 'from-green-500 to-green-600' },
-      { name: 'Deep Learning', level: 87, color: 'from-pink-500 to-pink-600' }
+      { name: 'Scikit-learn', level: 92, color: 'from-blue-500 to-blue-600' },      { name: 'NLP', level: 90, color: 'from-green-500 to-green-600' },
+      { name: 'Deep Learning', level: 95, color: 'from-pink-500 to-pink-600' },
+      { name: 'Langchain', level: 92, color: 'from-blue-500 to-blue-600' }, 
+      { name: 'RAG', level: 98, color: 'from-green-500 to-green-600' },
+      { name: 'Agentic AI', level: 80, color: 'from-green-500 to-green-600' },
     ]
   },
   {
@@ -30,11 +29,9 @@ const skillCategories = [
     skills: [
       { name: 'Pandas', level: 95, color: 'from-blue-500 to-blue-600' },
       { name: 'NumPy', level: 93, color: 'from-yellow-500 to-yellow-600' },
-      { name: 'Data Visualization', level: 88, color: 'from-purple-500 to-purple-600' },
+      { name: 'Data Visualization', level: 90, color: 'from-purple-500 to-purple-600' },
       { name: 'Statistical Analysis', level: 85, color: 'from-green-500 to-green-600' },
-      { name: 'SQL', level: 90, color: 'from-red-500 to-red-600' },
-      { name: 'Apache Spark', level: 75, color: 'from-pink-500 to-pink-600' }
-    ]
+      { name: 'SQL', level: 90, color: 'from-red-500 to-red-600' },    ]
   },
   {
     title: 'Blockchain & Web3',
@@ -43,7 +40,6 @@ const skillCategories = [
       { name: 'Smart Contracts', level: 85, color: 'from-blue-500 to-blue-600' },
       { name: 'Web3.js', level: 82, color: 'from-green-500 to-green-600' },
       { name: 'DApp Development', level: 80, color: 'from-yellow-500 to-yellow-600' },
-      { name: 'IPFS', level: 75, color: 'from-red-500 to-red-600' },
       { name: 'Hardhat', level: 78, color: 'from-pink-500 to-pink-600' }
     ]
   },
@@ -53,7 +49,7 @@ const skillCategories = [
       { name: 'React', level: 92, color: 'from-blue-500 to-blue-600' },
       { name: 'Node.js', level: 87, color: 'from-green-500 to-green-600' },
       { name: 'HTML/CSS', level: 95, color: 'from-orange-500 to-orange-600' },
-      { name: 'Tailwind CSS', level: 90, color: 'from-purple-500 to-purple-600' },
+      { name: 'Tailwind CSS', level: 80, color: 'from-purple-500 to-purple-600' },
       { name: 'Express.js', level: 85, color: 'from-yellow-500 to-yellow-600' },
       { name: 'MongoDB', level: 80, color: 'from-red-500 to-red-600' }
     ]
@@ -62,22 +58,12 @@ const skillCategories = [
     title: 'Tools & Technologies',
     skills: [
       { name: 'Git/GitHub', level: 95, color: 'from-purple-500 to-purple-600' },
-      { name: 'Docker', level: 80, color: 'from-blue-500 to-blue-600' },
-      { name: 'Jupyter Notebooks', level: 90, color: 'from-orange-500 to-orange-600' },
-      { name: 'AWS', level: 75, color: 'from-yellow-500 to-yellow-600' },
-      { name: 'Linux/Unix', level: 85, color: 'from-green-500 to-green-600' },
+      { name: 'Docker', level: 90, color: 'from-blue-500 to-blue-600' },
+      { name: 'Jupyter Notebooks', level: 95, color: 'from-orange-500 to-orange-600' },
+      { name: 'Linux/Unix', level: 95, color: 'from-green-500 to-green-600' },
       { name: 'MLOps', level: 78, color: 'from-pink-500 to-pink-600' }
     ]
   }
-];
-
-const certifications = [
-  'TensorFlow Developer Certificate',
-  'AWS Machine Learning Specialty',
-  'Deep Learning Specialization - Coursera',
-  'Blockchain Fundamentals - edX',
-  'Data Science Professional Certificate',
-  'Python for Everybody Specialization'
 ];
 
 import { Footer } from '@/components/Footer';
@@ -133,10 +119,10 @@ const Skills = () => {
           {/* Skills Summary */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             {[
-              { label: 'Programming Languages', count: '6+', color: 'purple' },
-              { label: 'ML/AI Frameworks', count: '10+', color: 'blue' },
-              { label: 'Years of Experience', count: '3+', color: 'pink' },
-              { label: 'Projects Completed', count: '25+', color: 'purple' }
+              { label: 'Programming Languages', count: '5+', color: 'purple' },
+              { label: 'ML/AI Frameworks', count: '8+', color: 'blue' },
+              { label: 'Years of Experience - Internship', count: '1+', color: 'pink' },
+              { label: 'Projects Completed', count: '10+', color: 'purple' }
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className={`text-3xl md:text-4xl font-bold mb-2 ${
@@ -151,25 +137,6 @@ const Skills = () => {
               </div>
             ))}
           </div>
-
-          {/* Certifications */}
-          <Card className="p-8 bg-gradient-to-r from-purple/5 to-pink/5 border-purple/20 mb-16">
-            <h2 className="text-2xl font-semibold mb-6 text-center">
-              Certifications & <span className="gradient-text">Achievements</span>
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {certifications.map((cert, index) => (
-                <Badge
-                  key={index}
-                  variant="outline"
-                  className="p-3 text-sm text-center bg-card hover:bg-card-hover border-border hover:border-purple/30 transition-all duration-300 hover:scale-105 justify-center"
-                >
-                  {cert}
-                </Badge>
-              ))}
-            </div>
-          </Card>
 
         </div>
       </div>

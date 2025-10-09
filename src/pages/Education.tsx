@@ -5,76 +5,53 @@ import { GraduationCap, Calendar, MapPin, Award, BookOpen } from 'lucide-react';
 const education = [
   {
     degree: 'Bachelor of Technology - Computer Science Engineering (Data Science)',
-    institution: 'Sardar Vallabhbhai Institute of Technology (SVIT)',
-    location: 'Vasad, Gujarat, India',
+    institution: 'Swami Vivekananda Institute of Technology (SVIT)',
+    location: 'Hyderabad, India',
     duration: '2023 - 2027',
     status: 'Current',
-    gpa: '8.7/10.0',
-    description: 'Specializing in Data Science with focus on Machine Learning, Artificial Intelligence, and Big Data Analytics.',
+    gpa: '7.94/10.0',
+    description: 'B. Tech CSE(Data Science)',
     coursework: [
       'Data Structures and Algorithms',
-      'Machine Learning',
-      'Deep Learning',
-      'Computer Vision', 
-      'Natural Language Processing',
-      'Big Data Analytics',
       'Database Management Systems',
+      'Introduction to Data Science',
       'Software Engineering',
-      'Statistics and Probability',
-      'Linear Algebra'
+      'Statistics and Probability'
     ],
     achievements: [
-      'Dean\'s List for Academic Excellence',
-      'Top 5% of the class',
-      'Best Project Award in ML Course',
-      'Student Research Fellowship'
+      'Top 5% of the class'
     ],
     projects: [
-      'AI-powered Student Performance Prediction System',
-      'Blockchain-based Academic Credential Verification',
-      'Computer Vision Library Management System'
+      'ML Timeline- A timeline based wikipedia for evolution of ML',
     ]
   }
 ];
 
 const certifications = [
   {
-    title: 'Machine Learning Specialization',
-    issuer: 'Stanford University (Coursera)',
-    date: '2023',
-    credentialId: 'ABC123XYZ',
-    skills: ['Machine Learning', 'Python', 'Neural Networks']
+    title: 'Deep Learning - IIT Ropar',
+    issuer: 'NPTEL',
+    date: 'Nov 2024',
   },
   {
-    title: 'Deep Learning Specialization',
-    issuer: 'deeplearning.ai (Coursera)',
-    date: '2023',
-    credentialId: 'DEF456ABC',
-    skills: ['Deep Learning', 'TensorFlow', 'CNN', 'RNN']
+    title: 'IoT and LiDAR Technology in Healthcare',
+    issuer: 'Hyderabad Central University',
+    date: 'Nov 2024',
   },
   {
-    title: 'AWS Certified Machine Learning - Specialty',
-    issuer: 'Amazon Web Services',
-    date: '2024',
-    credentialId: 'GHI789DEF',
-    skills: ['AWS', 'MLOps', 'Cloud Computing']
+    title: 'Postman API Fundamentals Student Expert',
+    issuer: 'Postman',
+    date: 'July 2024',
   },
   {
-    title: 'Blockchain Fundamentals',
-    issuer: 'IBM (edX)',
-    date: '2023',
-    credentialId: 'JKL012GHI',
-    skills: ['Blockchain', 'Smart Contracts', 'Ethereum']
-  }
+    title: 'Advanced AI Bootcamp',
+    issuer: 'Swecha Telangana',
+    date: 'June 2024',
+  },
 ];
 
 const achievements = [
-  'National Level Hackathon Winner - Smart India Hackathon 2024',
-  'Best Research Paper Award - IEEE Conference on AI & Data Science',
-  'Google Summer of Code Participant 2024',
-  'Microsoft Student Partner Program',
-  'NVIDIA DLI Certified Instructor',
-  'Published 3 Research Papers in International Journals'
+  '1st Prize winner - SIH Internal Round 2024',
 ];
 
 import { Footer } from '@/components/Footer';
@@ -210,22 +187,6 @@ const Education = () => {
                       {cert.date}
                     </Badge>
                   </div>
-                  
-                  <div className="mb-4">
-                    <p className="text-xs text-foreground-muted mb-2">Credential ID: {cert.credentialId}</p>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {cert.skills.map((skill, i) => (
-                      <Badge
-                        key={i}
-                        variant="outline"
-                        className="text-xs bg-background/30 border-border"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
                 </Card>
               ))}
             </div>
@@ -252,9 +213,9 @@ const Education = () => {
           {/* Education Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             {[
-              { label: 'Current GPA', value: '8.7/10', color: 'purple' },
-              { label: 'Certifications', value: '15+', color: 'blue' },
-              { label: 'Research Papers', value: '3', color: 'pink' },
+              { label: 'Current GPA', value: '7.94/10', color: 'purple' },
+              { label: 'Certifications', value: '5+', color: 'blue' },
+              { label: 'Research Papers', value: '3(Ongoing)', color: 'pink' },
               { label: 'Years of Study', value: '2+', color: 'purple' }
             ].map((stat, index) => (
               <div key={index} className="text-center">
