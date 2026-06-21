@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, FileText, Youtube } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 export function Hero() {
   const [text, setText] = useState('');
@@ -35,29 +36,46 @@ export function Hero() {
                 ML Engineer Intern @TechPeek
               </div>
               <div>
-                AI Engineer Intern @DRDO | Research Intern @IIT Kanpur, IIT Patna | 
-                Blockchain Developer Intern @Inspiring Wave | SVIT CSE(DS) '2027
+                ML Engineer Intern @TechPeek | AI Engineer Intern @DRDO | Research Intern @IIT Kanpur, IIT Patna | Blockchain Developer Intern @Inspiring Wave | SVIT CSE(DS) ’2027
               </div>
             </div>
           </div>
 
-         <div className="flex flex-wrap gap-4">
-          <a href="Advait Joshi Resume.pdf" download>
+        {/* CTA Button Group */}
+        <div className="flex flex-wrap items-center gap-4">
+          {/* Portfolio — outline/secondary */}
+          <Link to="/">
             <Button
-              variant="default"
-              className="bg-gradient-to-r from-purple to-blue hover:from-purple-dark hover:to-blue-dark"
-            >
-              <FileText className="w-4 h-4 mr-2" />
-              View Resume
-            </Button>
-          </a>
-          <a href="https://youtu.be/wQq6Q2G2xV8?si=Crhgeztlv3cQfcy9" target="_blank" rel="noopener noreferrer">
-            <Button
+              size="lg"
               variant="outline"
-              className="border-purple/30 text-purple hover:bg-purple/10"
+              className="border-purple/40 text-purple hover:bg-purple/10 hover:border-purple/70 px-8 py-3 text-base font-semibold transition-all duration-200"
             >
-              <Youtube className="w-4 h-4 mr-2" />
-              Youtube Video - Project Explanation
+              Portfolio
+            </Button>
+          </Link>
+
+          {/* Blogs — primary/filled */}
+          <Link to="/blog">
+            <Button
+              size="lg"
+              variant="default"
+              className="bg-gradient-to-r from-purple to-blue hover:from-purple-dark hover:to-blue-dark px-8 py-3 text-base font-semibold shadow-lg hover:shadow-purple/30 transition-all duration-200"
+            >
+              Blogs
+            </Button>
+          </Link>
+
+          {/* My Resume — plain text, tertiary, no icon, opens Google Drive */}
+          <a
+            href="#resume-placeholder"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              variant="ghost"
+              className="text-foreground-muted hover:text-foreground text-sm font-medium px-3 underline-offset-4 hover:underline transition-all duration-200"
+            >
+              My Resume
             </Button>
           </a>
         </div>
