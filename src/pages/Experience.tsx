@@ -4,104 +4,50 @@ import { Button } from '@/components/ui/button';
 import { Calendar, MapPin, Building } from 'lucide-react';
 
 const experiences = [
-
   {
     title: 'Research Intern',
-    company: 'Indian Institute of Technology (IIT) Kanpur',
+    company: 'IIT Kanpur',
     location: 'Remote',
-    duration: 'June 2025 - Present',
+    duration: 'Jun 2025 - Present',
     type: 'Current',
-    description: 'Research areas: Mechanistic Interpretability, RAG, Benchmaring.',
+    description: 'Contributing to the development of legal AI systems, focusing on optimizing document generation and retrieval accuracy using vanilla models.',
     achievements: [
-      'Researching and experimenting in the field of Mechanistic Interpretability.',
-      'Experimenting on various LLM\'s using PEFT.',
+      'Streamlined open-source workflows to improve system reliability and cross-platform performance.'
     ],
-    skills: ['Mechanistic Interpretability', 'PEFT (LoRA/QLoRA)', 'RAG Pipelines', 'LLM Architectures'],
+    skills: ['Python', 'LLMs', 'RAG Pipelines', 'Document AI', 'Research'],
     color: 'pink'
-  },
-  {
-    title: 'Research Intern',
-    company: 'Indian Institute of Technology (IIT) Patna',
-    location: 'Remote',
-    duration: 'April 2025 - December 2025',
-    type: 'Completed',
-    description: 'Focused on advanced machine learning techniques and their applications in real-world scenarios. Worked on interdisciplinary research projects.',
-    achievements: [
-      'Implemented state-of-the-art ML models for data classification',
-      'Conducted extensive literature review on emerging AI techniques',
-      'Developed prototypes for academic research validation',
-      'Mentored junior students in research methodologies'
-    ],
-    skills: ['Machine Learning', 'Data Science', 'Research', 'Python', 'Jupyter Notebooks'],
-    color: 'purple'
   },
   {
     title: 'ML Engineer Intern',
     company: 'TechPeek',
     location: 'Remote',
-    duration: 'September 2025 - October 2025',
+    duration: 'Sep 2025 - Oct 2025',
     type: 'Completed',
-    description: 'Building and extending ActivityWatch into a deployable product using Flask, Peewee, and REST APIs, while integrating small language models to improve event tracking intelligence.',
+    description: 'Engineered an enterprise AI platform for law firms by adapting the open-source ActivityWatch framework into a multi-tenant product.',
     achievements: [
-      'Revamping ActivityWatch, an open-source offline work tracker, into a commercial product, enhancing performance, scalability, and user experience for launch.',
-      'Developing full-stack features using Flask, Peewee ORM, and SQLite, building new frontend pages and backend APIs for seamless data synchronization and event tracking.',
-      'Integrating small language models (SLMs) to enable intelligent categorization and context-aware tracking of user activities.',
-      'Collaborating on REST API design, memory architecture, and abstract memory modules to ensure efficient event storage, retrieval, and model inference integration.'
+      'Designed complex data flows between frontend and backend to integrate Small Language Models for automated document intelligence and workflow automation.',
+      'Engineered a Project Management module with full database integration for real-time project, billing, and progress tracking.',
+      'Refactored system architectures to align with enterprise standards, focusing on scalability and seamless AI integration.'
     ],
-    skills: ['Python', 'Flask', 'Peewee ORM', 'SQLite', 'REST API Development', 'Frontend Development (React.js/Vue.js)','LLMOps', 'API Integration & Testing', 'Version Control'],
+    skills: ['Python', 'Flask', 'SLMs', 'SQLite', 'REST API Development', 'Frontend Development'],
     color: 'purple'
   },
   {
     title: 'AI Engineer Intern',
-    company: 'DRDO RCI(Research Centre Imarat),',
+    company: 'DRDO RCI',
     location: 'Hyderabad, India',
-    duration: 'August 2025 - October 2025',
+    duration: 'Aug 2025 - Oct 2025',
     type: 'Completed',
-    description: 'Worked on artificial intelligence applications for defense technologies. Contributed to research and development of AI systems for strategic applications.',
+    description: 'Built a multi-route RAG chatbot for the DRDO intranet with separate General and Document modes.',
     achievements: [
-      'Developed AI algorithms for pattern recognition in defense systems',
-      'Conducted research on neural networks for tactical applications',
-      'Presented findings to senior research scientists',
-      'Contributed to classified AI research projects'
+      'Built a conversation memory system backed by PostgreSQL to persist user sessions and message history.',
+      'Deployed quantized LLaMA 3.2 1B models using llama.cpp — 3x faster inference.',
+      'Implemented retrieval pipeline using LangChain, ChromaDB, and reranking.',
+      'Proposed a database-integrated third route for secure intranet-wide retrieval.'
     ],
-    skills: ['Artificial Intelligence', 'Neural Networks', 'Computer Vision', 'Python', 'Research'],
+    skills: ['Python', 'LangChain', 'ChromaDB', 'PostgreSQL', 'llama.cpp', 'RAG Pipelines', 'FastAPI'],
     color: 'blue'
-  },
-  
-  
-  {
-    title: 'Blockchain Developer Intern',
-    company: 'Inspiring Wave',
-    location: 'Remote',
-    duration: 'April 2025 - August 2025',
-    type: 'Completed',
-    description:
-      'As a Blockchain Developer Intern, I led the end-to-end development of a meme-coin project on the Base chain, contributing to smart contract design, tokenomics, and project strategy while managing a 13-member cross-functional team.',
-    achievements: [
-      'Led the development of a meme-coin project inspired by narrative-driven crypto culture on the Base chain.',
-      'Oversaw end-to-end smart contract architecture and development as the sole blockchain developer.',
-      'Managed and coordinated a 13-member cross-functional team across smart contracts, marketing, design, and research.',
-      'Co-led marketing and community growth efforts, contributing to brand narrative and go-to-market planning.',
-      'Designed the overall project structure, sprint cycles, and team workflows to align progress across functions.'
-    ],
-    notes: '(Project was in active development during internship tenure.)',
-    skills: ['Solidity', 'Ethereum', 'Smart Contracts', 'Web3.js', 'DApp Development'],
-    color: 'blue'
-  },
-
-  {
-    title: 'Summer of AI Intern',
-    company: 'Swecha Telangana',
-    location: 'Hyderabad, India',
-    duration: 'May 2024 - June 2024',
-    type: 'Completed',
-    description: ' Contributed to the development of an advanced Telugu Language Model (LLM) and Text-to-Speech (TTS) Voice Avatar.',
-    achievements: [
-      'Collaborated on building the world’s first supercomputing cluster for AI with Meta, IIIT Hyderabad, Ozonetel, and TASK'
-    ],
-    skills: ['Artificial Intelligence', 'Neural Networks', 'Data Analysis', 'Ubuntu', 'OS Development', 'Python', 'Research'],
-    color: 'pink'
-  },
+  }
 ];
 
 import { Footer } from '@/components/Footer';
