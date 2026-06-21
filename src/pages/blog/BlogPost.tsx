@@ -1,5 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
-import { allPosts } from './BlogHome';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { allPosts } from '@/lib/posts';
 import { FloatingWidget } from '@/components/blog/FloatingWidget';
 import '../../styles/blog.css';
 
@@ -78,18 +80,16 @@ const BlogPost = () => {
           </div>
         </header>
 
-        {/* Post content placeholder */}
+        {/* Post content */}
         <article style={{ minHeight: '40vh' }}>
           <p style={{ fontSize: '1.2rem', color: 'var(--blog-text-muted)', fontStyle: 'italic', marginBottom: '2rem' }}>
             {post.description}
           </p>
-          <p>
-            This is a placeholder for the actual MDX content. The full MDX pipeline will be implemented in Phase 7.
-          </p>
-          <h2>Example Heading</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
+          <div className="blog-prose">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {post.content}
+            </ReactMarkdown>
+          </div>
         </article>
 
         <hr className="blog-divider" style={{ margin: '4rem 0 2rem' }} />

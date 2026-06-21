@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === "development" && componentTagger()
   ].filter(Boolean),
+  assetsInclude: ['**/*.md'],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

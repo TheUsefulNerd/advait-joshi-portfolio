@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { allPosts } from './BlogHome';
+import { allPosts } from '@/lib/posts';
 import '../../styles/blog.css';
 
 function formatDate(date: string) {
@@ -23,21 +23,25 @@ const BlogArchive = () => {
       p.title.toLowerCase().includes(search.toLowerCase()) ||
       p.description.toLowerCase().includes(search.toLowerCase())
     )
-    .filter((p) => !activeTag || p.tags.includes(activeTag))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .filter((p) => !activeTag || p.tags.includes(activeTag));
 
-  // Group by year
-  const byYear = filtered.reduce<Record<string, typeof filtered>>((acc, post) => {
-    const year = new Date(post.date).getFullYear().toString();
-    (acc[year] ??= []).push(post);
+  // Group by primary tag
+  const byTag = filtered.reduce<Record<string, typeof filtered>>((acc, post) => {
+    const primaryTag = post.tags[0] || 'other';
+    (acc[primaryTag] ??= []).push(post);
     return acc;
   }, {});
 
-  const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
+  const tags = Object.keys(byTag).sort();
+
+  // Sort posts within each group: oldest first (sequential reading order)
+  tags.forEach(tag => {
+    byTag[tag].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  });
 
   return (
     <div className="blog-page">
-      <div className="max-w-2xl mx-auto px-6 py-12">
+      <div className="max-w-3xl mx-auto px-6 py-12">
 
         <header className="mb-8">
           <h1>Archive</h1>
@@ -81,33 +85,22 @@ const BlogArchive = () => {
           </p>
         )}
 
-        {years.map((year) => (
-          <section key={year} style={{ marginBottom: '2.5rem' }}>
-            <h2 style={{ marginTop: 0 }}>{year}</h2>
+        {tags.map((tag) => (
+          <section key={tag} style={{ marginBottom: '2.5rem' }}>
+            <h2 style={{ marginTop: 0, textTransform: 'capitalize' }}>{tag}</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {byYear[year].map((post) => (
+              {byTag[tag].map((post, index) => (
                 <Link key={post.slug} to={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
-                  <div className="blog-card">
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'flex-start',
-                        gap: '1rem',
-                      }}
-                    >
-                      <div>
-                        <div className="blog-card-title">{post.title}</div>
-                        <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', marginTop: '0.4rem' }}>
-                          {post.tags.map((tag) => (
-                            <span key={tag} className="blog-tag" style={{ cursor: 'default' }}>{tag}</span>
-                          ))}
-                        </div>
-                      </div>
-                      <span className="blog-card-meta" style={{ flexShrink: 0, paddingTop: '0.1rem' }}>
-                        {formatDate(post.date)}
-                      </span>
+                  <div className="blog-card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.5rem' }}>
+                    <div style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--blog-text-muted)', minWidth: '1.5rem', textAlign: 'right' }}>
+                      {index + 1}.
                     </div>
+                    <div style={{ flexGrow: 1 }}>
+                      <div className="blog-card-title" style={{ margin: 0, fontSize: '1.1rem' }}>{post.title}</div>
+                    </div>
+                    <span className="blog-card-meta" style={{ flexShrink: 0 }}>
+                      {formatDate(post.date)}
+                    </span>
                   </div>
                 </Link>
               ))}
