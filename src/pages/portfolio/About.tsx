@@ -78,7 +78,7 @@ const education = {
   institution: 'Swami Vivekananda Institute of Technology (SVIT)',
   location: 'Hyderabad, India',
   duration: '2023 – 2027',
-  gpa: '7.94/10.0',
+  gpa: '8.14/10.0',
   coursework: ['Data Structures & Algorithms', 'Database Management Systems', 'Introduction to Data Science', 'Software Engineering', 'Statistics & Probability'],
 };
 

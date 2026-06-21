@@ -9,7 +9,7 @@ const education = [
     location: 'Hyderabad, India',
     duration: '2023 - 2027',
     status: 'Current',
-    gpa: '7.94/10.0',
+    gpa: '8.14/10.0',
     description: 'B. Tech CSE(Data Science)',
     coursework: [
       'Data Structures and Algorithms',
@@ -213,7 +213,7 @@ const Education = () => {
           {/* Education Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             {[
-              { label: 'Current GPA', value: '7.94/10', color: 'purple' },
+              { label: 'Current GPA', value: '8.14/10', color: 'purple' },
               { label: 'Certifications', value: '5+', color: 'blue' },
               { label: 'Research Papers', value: '3(Ongoing)', color: 'pink' },
               { label: 'Years of Study', value: '2+', color: 'purple' }
