@@ -76,6 +76,53 @@
     --transition-bounce: all var(--duration-normal) cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
+  /* ── Light mode overrides ── */
+  /* Applied when <html class="light"> is set by the theme toggle */
+  .light {
+    /* Backgrounds */
+    --background: 0 0% 98%;
+    --background-secondary: 220 14% 94%;
+    --background-tertiary: 220 13% 90%;
+
+    /* Text */
+    --foreground: 224 20% 12%;
+    --foreground-muted: 220 9% 42%;
+
+    /* Cards */
+    --card: 0 0% 100%;
+    --card-foreground: 224 20% 12%;
+    --card-hover: 220 14% 94%;
+
+    /* Purple palette — deeper for contrast on light bg */
+    --purple: 258 80% 45%;
+    --purple-light: 262 75% 55%;
+    --purple-dark: 256 85% 35%;
+
+    /* Blue palette — richer on light bg */
+    --blue: 217 85% 45%;
+    --blue-light: 217 80% 58%;
+    --blue-dark: 217 90% 35%;
+
+    /* Pink/Rose palette — vivid on light bg */
+    --pink: 330 75% 52%;
+    --pink-light: 330 70% 62%;
+    --pink-dark: 328 80% 42%;
+
+    /* Gradients (light) — same structure, deeper tones */
+    --gradient-primary: linear-gradient(135deg, hsl(258 80% 45%) 0%, hsl(217 85% 45%) 50%, hsl(330 75% 52%) 100%);
+    --gradient-purple-blue: linear-gradient(135deg, hsl(258 80% 45%) 0%, hsl(217 85% 45%) 100%);
+    --gradient-blue-pink: linear-gradient(135deg, hsl(217 85% 45%) 0%, hsl(330 75% 52%) 100%);
+
+    /* Glow effects (lighter on light bg) */
+    --glow-purple: 0 0 20px hsl(258 80% 45% / 0.2);
+    --glow-blue: 0 0 20px hsl(217 85% 45% / 0.2);
+    --glow-pink: 0 0 20px hsl(330 75% 52% / 0.2);
+
+    /* Borders & inputs */
+    --border: 220 13% 82%;
+    --input: 220 13% 82%;
+  }
+
   * {
     @apply border-border;
   }
@@ -103,7 +150,7 @@
     animation: curtain-reveal 0.8s ease-out forwards;
   }
 
-  /* Gradient text effect */
+  /* Gradient text effect — auto-adapts via --gradient-primary CSS var */
   .gradient-text {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -111,11 +158,40 @@
     background-clip: text;
   }
 
-  /* Glass morphism cards */
+  /* Glass morphism cards — dark default */
   .glass-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Glass card — light mode variant */
+  .light .glass-card {
+    background: rgba(255, 255, 255, 0.70);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  /* ── Hero decorative elements: light mode recolor ── */
+
+  /* Photo border ring: uses Tailwind gradient classes in JSX;
+     in light mode we bump opacity slightly so the ring stays vivid */
+  .light .hero-photo-ring {
+    filter: saturate(1.15) brightness(0.92);
+  }
+
+  /* Soundwave bars: light mode uses deeper hue stop values */
+  .light .soundwave-bar-left {
+    background: linear-gradient(to top, hsl(258 80% 45%), hsl(217 85% 45%));
+  }
+
+  .light .soundwave-bar-right {
+    background: linear-gradient(to top, hsl(217 85% 45%), hsl(330 75% 52%));
+  }
+
+  /* Pulse glow: subtler on light backgrounds */
+  .light .hero-pulse-glow {
+    opacity: 0.15 !important;
+    animation: pulse-glow-light 2s ease-in-out infinite alternate;
   }
 }
 
