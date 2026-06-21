@@ -1,0 +1,238 @@
+/*
+  Blog Design System — Minimalist editorial ("professor") feel.
+  Completely separate from the energetic Portfolio design.
+  Applied by adding class="blog-page" to the blog page wrapper.
+
+  Light: warm off-white bg, near-black text, single flat accent (brand purple),
+         generous line-height, thin borders, no gradients, no decorative elements.
+  Dark:  same restrained philosophy, inverted palette.
+*/
+
+.blog-page {
+  /* ── Light mode (default) ─────────────────────────────────────────────── */
+  --blog-bg:            #FAFAF8;
+  --blog-bg-secondary:  #F2F2EF;
+  --blog-text:          #1A1A1A;
+  --blog-text-muted:    #6B6B6B;
+  --blog-accent:        hsl(258, 80%, 45%);   /* brand purple — flat, no gradient */
+  --blog-border:        #E2E2DE;
+  --blog-card-bg:       #FFFFFF;
+  --blog-tag-bg:        #EDEDE9;
+  --blog-tag-text:      #4A4A4A;
+  --blog-line-height:   1.75;
+
+  background-color: var(--blog-bg);
+  color: var(--blog-text);
+  font-family: 'Inter', 'Georgia', serif;
+  line-height: var(--blog-line-height);
+  min-height: 100vh;
+  padding-top: 4rem; /* nav height */
+}
+
+/* ── Dark mode (applied via .dark class from next-themes) ──────────────── */
+.dark .blog-page {
+  --blog-bg:            #111110;
+  --blog-bg-secondary:  #1A1A18;
+  --blog-text:          #E8E8E5;
+  --blog-text-muted:    #9A9A96;
+  --blog-accent:        hsl(262.1, 83.3%, 65%);  /* slightly lighter purple for dark bg */
+  --blog-border:        #2A2A28;
+  --blog-card-bg:       #1A1A18;
+  --blog-tag-bg:        #232321;
+  --blog-tag-text:      #B0B0AC;
+}
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+.blog-page h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--blog-text);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.blog-page h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--blog-text);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--blog-border);
+  padding-bottom: 0.5rem;
+}
+
+.blog-page h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--blog-text);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-page p {
+  color: var(--blog-text);
+  margin-bottom: 1.5rem;
+  max-width: 70ch;
+}
+
+.blog-page a {
+  color: var(--blog-accent);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.blog-page a:hover {
+  text-decoration-color: var(--blog-accent);
+}
+
+/* ── Post cards ──────────────────────────────────────────────────────────── */
+.blog-card {
+  background-color: var(--blog-card-bg);
+  border: 1px solid var(--blog-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.blog-card:hover {
+  border-color: var(--blog-accent);
+  transform: translateY(-2px);
+}
+
+.blog-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--blog-text);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.blog-card-excerpt {
+  font-size: 0.9rem;
+  color: var(--blog-text-muted);
+  line-height: 1.65;
+}
+
+.blog-card-meta {
+  font-size: 0.8rem;
+  color: var(--blog-text-muted);
+  margin-top: 0.75rem;
+}
+
+/* ── Tags ─────────────────────────────────────────────────────────────────── */
+.blog-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--blog-tag-bg);
+  color: var(--blog-tag-text);
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  border: none;
+}
+
+.blog-tag:hover,
+.blog-tag.active {
+  background-color: var(--blog-accent);
+  color: #FFFFFF;
+}
+
+/* ── Dividers ─────────────────────────────────────────────────────────────── */
+.blog-divider {
+  border: none;
+  border-top: 1px solid var(--blog-border);
+  margin: 2rem 0;
+}
+
+/* ── "Start Here" pinned card ─────────────────────────────────────────────── */
+.blog-pinned {
+  border: 1.5px solid var(--blog-accent);
+  background-color: var(--blog-card-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.blog-pinned::before {
+  content: '📌 Start Here';
+  position: absolute;
+  top: -0.6rem;
+  left: 1rem;
+  background-color: var(--blog-accent);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+/* ── Search / filter bar ──────────────────────────────────────────────────── */
+.blog-input {
+  background-color: var(--blog-bg-secondary);
+  border: 1px solid var(--blog-border);
+  color: var(--blog-text);
+  border-radius: 6px;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.9rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.blog-input:focus {
+  border-color: var(--blog-accent);
+}
+
+.blog-input::placeholder {
+  color: var(--blog-text-muted);
+}
+
+/* ── Feedback form ────────────────────────────────────────────────────────── */
+.blog-form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--blog-text);
+  display: block;
+  margin-bottom: 0.375rem;
+}
+
+.blog-submit-btn {
+  background-color: var(--blog-accent);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 0.625rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.blog-submit-btn:hover {
+  opacity: 0.88;
+}
+
+/* ── Star rating ──────────────────────────────────────────────────────────── */
+.star-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--blog-border);
+  transition: color 0.15s ease, transform 0.15s ease;
+  padding: 0 2px;
+}
+
+.star-btn.filled,
+.star-btn:hover {
+  color: var(--blog-accent);
+  transform: scale(1.15);
+}

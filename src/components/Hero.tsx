@@ -44,7 +44,7 @@ export function Hero() {
         {/* CTA Button Group */}
         <div className="flex flex-wrap items-center gap-4">
           {/* Portfolio — outline/secondary */}
-          <Link to="/">
+          <Link to="/portfolio/about">
             <Button
               size="lg"
               variant="outline"
@@ -67,7 +67,7 @@ export function Hero() {
 
           {/* My Resume — plain text, tertiary, no icon, opens Google Drive */}
           <a
-            href="#resume-placeholder"
+            href="https://drive.google.com/file/d/1_tN3lFRTE-CPvXKdJnqyi-5P2DcLxo4O/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -85,7 +85,7 @@ export function Hero() {
             {[
               { icon: Github, href: 'https://github.com/TheUsefulNerd', label: 'GitHub' },
               { icon: Linkedin, href: 'https://linkedin.com/in/advaitszone', label: 'LinkedIn' },
-              { icon: Mail, href: 'mailto:advait@example.com', label: 'Email' },
+              { icon: Mail, href: 'mailto:advaitszone@gmail.com', label: 'Email' },
             ].map((social, index) => {
               const Icon = social.icon;
               return (

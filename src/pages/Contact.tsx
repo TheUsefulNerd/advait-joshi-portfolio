@@ -108,14 +108,26 @@ const Contact = () => {
         <div className="curtain-reveal">
           
           {/* Header */}
-          <div className="text-center mb-20">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Get In <span className="gradient-text">Touch</span>
-            </h1>
-            <p className="text-xl text-foreground-muted max-w-3xl mx-auto leading-relaxed">
-              I'm always interested in new opportunities, collaborations, and interesting conversations. 
-              Let's connect and build something amazing together!
-            </p>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-20 gap-4">
+            <div className="text-center sm:text-left">
+              <h1 className="text-4xl md:text-5xl font-bold mb-3">
+                Get In <span className="gradient-text">Touch</span>
+              </h1>
+              <p className="text-xl text-foreground-muted max-w-3xl leading-relaxed">
+                I'm always interested in new opportunities, collaborations, and interesting conversations.
+                Let's connect and build something amazing together!
+              </p>
+            </div>
+            <a
+              href="https://drive.google.com/file/d/1_tN3lFRTE-CPvXKdJnqyi-5P2DcLxo4O/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0"
+            >
+              <Button variant="ghost" className="text-foreground-muted hover:text-foreground text-sm font-medium underline-offset-4 hover:underline">
+                My Resume
+              </Button>
+            </a>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
