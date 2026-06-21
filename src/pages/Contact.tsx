@@ -55,8 +55,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'advait.official.work@gmail.com',
-      href: 'mailto:advait.official.work@gmail.com',
+      value: 'advaitszone@gmail.com',
+      href: 'mailto:advaitszone@gmail.com',
       color: 'purple'
     },
     {
