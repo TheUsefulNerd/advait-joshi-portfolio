@@ -11,7 +11,6 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [
-    { enforce: 'pre', ...mdx({ extensions: ['.mdx'] }) },
     react(),
     mode === "development" && componentTagger()
   ].filter(Boolean),
