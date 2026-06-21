@@ -1,88 +1,233 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, User, Briefcase, FolderOpen, Award, BookOpen, Github, FileText, Mail } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import {
+  Menu, X, Sun, Moon,
+  User, Briefcase, FolderOpen, GraduationCap, Mail,
+  BookOpen, Archive, MessageSquare
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const navItems = [
-  { name: 'Home', path: '/', icon: Home },
-  { name: 'Experience', path: '/experience', icon: Briefcase },
-  { name: 'Projects', path: '/projects', icon: FolderOpen },
-  { name: 'Skills', path: '/skills', icon: Award },
-  { name: 'Education', path: '/education', icon: BookOpen },
-
-  { name: 'Contact', path: '/contact', icon: Mail },
+// ── Portfolio sub-nav items ────────────────────────────────────────────────────
+const portfolioItems = [
+  { name: 'About Me',   path: '/portfolio/about',      icon: User },
+  { name: 'Experience', path: '/portfolio/experience',  icon: Briefcase },
+  { name: 'Projects',   path: '/portfolio/projects',    icon: FolderOpen },
+  { name: 'Education',  path: '/portfolio/education',   icon: GraduationCap },
+  { name: 'Contact',    path: '/portfolio/contact',     icon: Mail },
 ];
+
+// ── Blog sub-nav items ─────────────────────────────────────────────────────────
+const blogItems = [
+  { name: 'Recent Blogs',  path: '/blog',           icon: BookOpen },
+  { name: 'Archive',       path: '/blog/archive',   icon: Archive },
+  { name: 'Feedback Form', path: '/blog/feedback',  icon: MessageSquare },
+];
+
+// ── Shared resume URL ─────────────────────────────────────────────────────────
+const RESUME_URL =
+  'https://drive.google.com/file/d/1_tN3lFRTE-CPvXKdJnqyi-5P2DcLxo4O/view?usp=sharing';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
+
+  const path = location.pathname;
+
+  // Determine current mode from URL
+  const isPortfolio = path.startsWith('/portfolio') ||
+    ['/experience', '/projects', '/skills', '/education', '/contact'].includes(path);
+  const isBlog = path.startsWith('/blog');
+  const isHome = !isPortfolio && !isBlog;
+
+  const isDark = theme === 'dark';
+  const toggleTheme = () => setTheme(isDark ? 'light' : 'dark');
+
+  // Active check helper
+  const isActive = (itemPath: string) =>
+    path === itemPath || (itemPath !== '/blog' && path.startsWith(itemPath));
+
+  // ── Shared theme toggle button ───────────────────────────────────────────
+  const ThemeToggle = () => (
+    <button
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+      className="p-2 rounded-lg text-foreground-muted hover:text-foreground hover:bg-card-hover transition-all duration-200"
+    >
+      {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+    </button>
+  );
+
+  // ── Nav link shared styles ──────────────────────────────────────────────
+  const navLinkClass = (active: boolean) =>
+    `flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+      active
+        ? 'bg-primary/10 text-primary border border-primary/20'
+        : 'text-foreground-muted hover:text-foreground hover:bg-card-hover'
+    }`;
+
+  const modeButtonClass = (active: boolean) =>
+    `px-4 py-1.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
+      active
+        ? 'bg-gradient-to-r from-purple to-blue text-white shadow-md'
+        : 'text-foreground-muted hover:text-foreground hover:bg-card-hover border border-border'
+    }`;
 
   return (
     <>
-      {/* Desktop Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple to-pink flex items-center justify-center">
-                <img
-                    src="/Linkedin PFP.jpg"
-                    alt="LinkedIn Profile"
-                    className="w-full h-full object-cover rounded-full"
-                  />
-              </div>
-              <span className="font-semibold text-lg">Advait Joshi</span>
-            </Link>
+          <div className="flex items-center h-16 gap-3">
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-1">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                const isActive = location.pathname === item.path;
-                return (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                      isActive
-                        ? 'bg-primary/10 text-primary border border-primary/20'
-                        : 'text-foreground-muted hover:text-foreground hover:bg-card-hover'
-                    }`}
-                  >
-                    <Icon className="w-4 h-4" />
-                    <span>{item.name}</span>
+            {/* ── HOME STATE: Logo + name on left, Portfolio / Blogs on right ── */}
+            {isHome && (
+              <>
+                {/* Logo */}
+                <Link to="/" className="flex items-center gap-2 mr-auto">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple to-pink overflow-hidden flex-shrink-0">
+                    <img
+                      src="/Linkedin PFP.jpg"
+                      alt="Advait Joshi"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="font-semibold text-base hidden sm:block">Advait Joshi</span>
+                </Link>
+
+                {/* Desktop: mode buttons + theme */}
+                <div className="hidden md:flex items-center gap-2">
+                  <Link to="/portfolio/about">
+                    <button className={modeButtonClass(false)}>Portfolio</button>
                   </Link>
-                );
-              })}
-            </div>
+                  <Link to="/blog">
+                    <button className={modeButtonClass(false)}>Blogs</button>
+                  </Link>
+                  <ThemeToggle />
+                </div>
 
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="md:hidden"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </Button>
+                {/* Mobile hamburger */}
+                <Button variant="ghost" size="sm" className="md:hidden ml-auto" onClick={() => setIsOpen(!isOpen)}>
+                  {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </Button>
+              </>
+            )}
+
+            {/* ── PORTFOLIO STATE: PORTFOLIO label + sub-nav on left, BLOGS on right ── */}
+            {isPortfolio && (
+              <>
+                {/* Portfolio mode indicator + sub-nav */}
+                <div className="hidden md:flex items-center gap-1 mr-auto">
+                  <Link to="/portfolio/about">
+                    <button className={modeButtonClass(true)}>Portfolio</button>
+                  </Link>
+                  <div className="w-px h-5 bg-border mx-1" />
+                  {portfolioItems.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <Link key={item.path} to={item.path} className={navLinkClass(isActive(item.path))}>
+                        <Icon className="w-3.5 h-3.5" />
+                        <span>{item.name}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                {/* Right: Blogs switch + theme */}
+                <div className="hidden md:flex items-center gap-2 ml-2">
+                  <Link to="/blog">
+                    <button className={modeButtonClass(false)}>Blogs</button>
+                  </Link>
+                  <ThemeToggle />
+                </div>
+
+                {/* Mobile hamburger */}
+                <Link to="/" className="flex items-center gap-2 md:hidden mr-auto">
+                  <div className="w-7 h-7 rounded-full overflow-hidden">
+                    <img src="/Linkedin PFP.jpg" alt="Advait" className="w-full h-full object-cover" />
+                  </div>
+                  <span className="font-semibold text-sm">Portfolio</span>
+                </Link>
+                <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+                  {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </Button>
+              </>
+            )}
+
+            {/* ── BLOG STATE: BLOGS label + sub-nav on left, PORTFOLIO on right ── */}
+            {isBlog && (
+              <>
+                {/* Blog mode indicator + sub-nav */}
+                <div className="hidden md:flex items-center gap-1 mr-auto">
+                  <Link to="/blog">
+                    <button className={modeButtonClass(true)}>Blogs</button>
+                  </Link>
+                  <div className="w-px h-5 bg-border mx-1" />
+                  {blogItems.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <Link key={item.path} to={item.path} className={navLinkClass(isActive(item.path))}>
+                        <Icon className="w-3.5 h-3.5" />
+                        <span>{item.name}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                {/* Right: Portfolio switch + theme */}
+                <div className="hidden md:flex items-center gap-2 ml-2">
+                  <Link to="/portfolio/about">
+                    <button className={modeButtonClass(false)}>Portfolio</button>
+                  </Link>
+                  <ThemeToggle />
+                </div>
+
+                {/* Mobile hamburger */}
+                <Link to="/" className="flex items-center gap-2 md:hidden mr-auto">
+                  <div className="w-7 h-7 rounded-full overflow-hidden">
+                    <img src="/Linkedin PFP.jpg" alt="Advait" className="w-full h-full object-cover" />
+                  </div>
+                  <span className="font-semibold text-sm">Blogs</span>
+                </Link>
+                <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+                  {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </Button>
+              </>
+            )}
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* ── Mobile Dropdown Menu ──────────────────────────────────────────── */}
         {isOpen && (
-          <div className="md:hidden bg-background-secondary/95 backdrop-blur-lg border-t border-border">
-            <div className="px-4 py-4 space-y-2">
-              {navItems.map((item) => {
+          <div className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border">
+            <div className="px-4 py-4 space-y-1">
+              {/* Mode switcher row */}
+              <div className="flex gap-2 pb-3 border-b border-border mb-3">
+                <Link to="/portfolio/about" onClick={() => setIsOpen(false)} className="flex-1">
+                  <button className={`w-full ${modeButtonClass(isPortfolio)}`}>Portfolio</button>
+                </Link>
+                <Link to="/blog" onClick={() => setIsOpen(false)} className="flex-1">
+                  <button className={`w-full ${modeButtonClass(isBlog)}`}>Blogs</button>
+                </Link>
+                <button
+                  onClick={() => { toggleTheme(); }}
+                  className="p-2 rounded-lg border border-border hover:bg-card-hover transition-all"
+                  aria-label="Toggle theme"
+                >
+                  {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                </button>
+              </div>
+
+              {/* Contextual sub-nav items */}
+              {isPortfolio && portfolioItems.map((item) => {
                 const Icon = item.icon;
-                const isActive = location.pathname === item.path;
                 return (
                   <Link
                     key={item.path}
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-                      isActive
+                    className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                      isActive(item.path)
                         ? 'bg-primary/10 text-primary border border-primary/20'
                         : 'text-foreground-muted hover:text-foreground hover:bg-card-hover'
                     }`}
@@ -92,6 +237,43 @@ export function Navigation() {
                   </Link>
                 );
               })}
+
+              {isBlog && blogItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                      isActive(item.path)
+                        ? 'bg-primary/10 text-primary border border-primary/20'
+                        : 'text-foreground-muted hover:text-foreground hover:bg-card-hover'
+                    }`}
+                  >
+                    <Icon className="w-5 h-5" />
+                    <span>{item.name}</span>
+                  </Link>
+                );
+              })}
+
+              {isHome && (
+                <div className="text-sm text-foreground-muted text-center pt-2">
+                  Choose a mode above to get started
+                </div>
+              )}
+
+              {/* Resume link in mobile */}
+              <div className="pt-3 border-t border-border mt-3">
+                <a
+                  href={RESUME_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center text-sm text-foreground-muted hover:text-foreground underline-offset-4 hover:underline transition-all py-2"
+                >
+                  My Resume ↗
+                </a>
+              </div>
             </div>
           </div>
         )}

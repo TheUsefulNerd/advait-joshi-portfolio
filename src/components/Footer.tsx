@@ -64,7 +64,7 @@ export const Footer = () => {
               {[
                 { name: 'GitHub', icon: Github, href: 'https://github.com/TheUsefulNerd', newTab: true },
                 { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/in/advaitszone', newTab: true },
-                { name: 'Email', icon: Mail, href: 'mailto:advait@example.com', newTab: true }
+                { name: 'Email', icon: Mail, href: 'mailto:advaitszone@gmail.com', newTab: true }
               ].map((social, index) => {
                 const Icon = social.icon;
                 return (

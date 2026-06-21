@@ -1,6 +1,7 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, MapPin, Building, ExternalLink } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Calendar, MapPin, Building } from 'lucide-react';
 
 const experiences = [
 
@@ -129,13 +130,25 @@ const Experience = () => {
         <div className="curtain-reveal">
           
           {/* Header */}
-          <div className="text-center mb-20">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Professional <span className="gradient-text">Experience</span>
-            </h1>
-            <p className="text-xl text-foreground-muted max-w-3xl mx-auto leading-relaxed">
-              A journey through diverse internships and research opportunities across leading organizations and prestigious institutions.
-            </p>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-20 gap-4">
+            <div className="text-center sm:text-left">
+              <h1 className="text-4xl md:text-5xl font-bold mb-3">
+                Professional <span className="gradient-text">Experience</span>
+              </h1>
+              <p className="text-xl text-foreground-muted max-w-3xl leading-relaxed">
+                A journey through diverse internships and research opportunities across leading organizations and prestigious institutions.
+              </p>
+            </div>
+            <a
+              href="https://drive.google.com/file/d/1_tN3lFRTE-CPvXKdJnqyi-5P2DcLxo4O/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0"
+            >
+              <Button variant="ghost" className="text-foreground-muted hover:text-foreground text-sm font-medium underline-offset-4 hover:underline">
+                My Resume
+              </Button>
+            </a>
           </div>
 
           {/* Timeline */}

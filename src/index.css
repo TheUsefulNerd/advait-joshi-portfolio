@@ -4,18 +4,95 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Advait Joshi Portfolio Design System - Dark theme with purple, blue, pink accents */
+/* Advait Joshi Portfolio Design System
+   Light mode is :root default; dark mode applied via .dark class (next-themes).
+   Blog section uses blog.css for its minimalist editorial design.
+*/
 
 @layer base {
+  /* ── LIGHT MODE (default) ─────────────────────────────────────────────── */
   :root {
-    /* Dark theme base colors */
+    /* Backgrounds */
+    --background: 0 0% 98%;
+    --background-secondary: 220 14% 94%;
+    --background-tertiary: 220 13% 90%;
+
+    /* Text */
+    --foreground: 224 20% 12%;
+    --foreground-muted: 220 9% 42%;
+
+    /* Cards */
+    --card: 0 0% 100%;
+    --card-foreground: 224 20% 12%;
+    --card-hover: 220 14% 94%;
+
+    /* Purple palette — deeper for contrast on light bg */
+    --purple: 258 80% 45%;
+    --purple-light: 262 75% 55%;
+    --purple-dark: 256 85% 35%;
+    --purple-foreground: 0 0% 98%;
+
+    /* Blue palette — richer on light bg */
+    --blue: 217 85% 45%;
+    --blue-light: 217 80% 58%;
+    --blue-dark: 217 90% 35%;
+    --blue-foreground: 0 0% 98%;
+
+    /* Pink/Rose palette — vivid on light bg */
+    --pink: 330 75% 52%;
+    --pink-light: 330 70% 62%;
+    --pink-dark: 328 80% 42%;
+    --pink-foreground: 0 0% 98%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(258 80% 45%) 0%, hsl(217 85% 45%) 50%, hsl(330 75% 52%) 100%);
+    --gradient-purple-blue: linear-gradient(135deg, hsl(258 80% 45%) 0%, hsl(217 85% 45%) 100%);
+    --gradient-blue-pink: linear-gradient(135deg, hsl(217 85% 45%) 0%, hsl(330 75% 52%) 100%);
+
+    /* Glow effects */
+    --glow-purple: 0 0 20px hsl(258 80% 45% / 0.2);
+    --glow-blue: 0 0 20px hsl(217 85% 45% / 0.2);
+    --glow-pink: 0 0 20px hsl(330 75% 52% / 0.2);
+
+    /* Semantic tokens */
+    --primary: var(--purple);
+    --primary-foreground: var(--purple-foreground);
+    --secondary: var(--background-secondary);
+    --secondary-foreground: var(--foreground);
+    --accent: var(--blue);
+    --accent-foreground: var(--blue-foreground);
+    --muted: var(--background-tertiary);
+    --muted-foreground: var(--foreground-muted);
+
+    --border: 220 13% 82%;
+    --input: 220 13% 82%;
+    --ring: var(--purple);
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --radius: 0.75rem;
+
+    /* Animation durations */
+    --duration-fast: 0.2s;
+    --duration-normal: 0.3s;
+    --duration-slow: 0.5s;
+
+    --transition-smooth: all var(--duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all var(--duration-normal) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* ── DARK MODE (applied via .dark class by next-themes) ──────────────── */
+  .dark {
+    /* Backgrounds */
     --background: 240 10% 3.9%;
     --background-secondary: 240 6% 8%;
     --background-tertiary: 240 5% 12%;
+
+    /* Text */
     --foreground: 0 0% 98%;
     --foreground-muted: 240 5% 64.9%;
 
-    /* Card system */
+    /* Cards */
     --card: 240 6% 8%;
     --card-foreground: 0 0% 98%;
     --card-hover: 240 5% 12%;
@@ -42,38 +119,15 @@
     --gradient-primary: linear-gradient(135deg, hsl(var(--purple)) 0%, hsl(var(--blue)) 50%, hsl(var(--pink)) 100%);
     --gradient-purple-blue: linear-gradient(135deg, hsl(var(--purple)) 0%, hsl(var(--blue)) 100%);
     --gradient-blue-pink: linear-gradient(135deg, hsl(var(--blue)) 0%, hsl(var(--pink)) 100%);
-    
-    /* Effects */
+
+    /* Glow effects */
     --glow-purple: 0 0 30px hsl(var(--purple) / 0.3);
     --glow-blue: 0 0 30px hsl(var(--blue) / 0.3);
     --glow-pink: 0 0 30px hsl(var(--pink) / 0.3);
 
-    /* Semantic tokens */
-    --primary: var(--purple);
-    --primary-foreground: var(--purple-foreground);
-    --secondary: var(--background-secondary);
-    --secondary-foreground: var(--foreground);
-    --accent: var(--blue);
-    --accent-foreground: var(--blue-foreground);
-    --muted: var(--background-tertiary);
-    --muted-foreground: var(--foreground-muted);
-
+    /* Borders & inputs */
     --border: 240 5% 18%;
     --input: 240 5% 18%;
-    --ring: var(--purple);
-    --destructive: 0 62.8% 50.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --radius: 0.75rem;
-
-    /* Animation durations */
-    --duration-fast: 0.2s;
-    --duration-normal: 0.3s;
-    --duration-slow: 0.5s;
-
-    /* Transitions */
-    --transition-smooth: all var(--duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all var(--duration-normal) cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   * {
@@ -86,13 +140,9 @@
 }
 
 @layer components {
-  /* Portfolio-specific animations */
+  /* ── Portfolio animations ──────────────────────────────────────────────── */
   .float-animation {
     animation: float 6s ease-in-out infinite;
-  }
-
-  .orbit-animation {
-    animation: orbit 8s linear infinite;
   }
 
   .pulse-glow {
@@ -103,7 +153,7 @@
     animation: curtain-reveal 0.8s ease-out forwards;
   }
 
-  /* Gradient text effect */
+  /* ── Gradient text — auto-adapts via --gradient-primary ──────────────── */
   .gradient-text {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -111,59 +161,70 @@
     background-clip: text;
   }
 
-  /* Glass morphism cards */
+  /* ── Glass morphism cards ─────────────────────────────────────────────── */
   .glass-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
+
+  .dark .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Light mode glass */
+  :root:not(.dark) .glass-card {
+    background: rgba(255, 255, 255, 0.70);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  /* ── Hero decorative — light mode recolor ────────────────────────────── */
+  :root:not(.dark) .hero-photo-ring {
+    filter: saturate(1.15) brightness(0.92);
+  }
+
+  :root:not(.dark) .soundwave-bar-left {
+    background: linear-gradient(to top, hsl(258 80% 45%), hsl(217 85% 45%)) !important;
+  }
+
+  :root:not(.dark) .soundwave-bar-right {
+    background: linear-gradient(to top, hsl(217 85% 45%), hsl(330 75% 52%)) !important;
+  }
+
+  :root:not(.dark) .hero-pulse-glow {
+    opacity: 0.15 !important;
+  }
+
+  /* ── Blog accent color (pulled from brand purple) ────────────────────── */
+  :root {
+    --blog-accent: hsl(258 80% 45%);
+  }
+
+  .dark {
+    --blog-accent: hsl(262.1 83.3% 57.8%);
+  }
 }
 
 @layer utilities {
-  /* Custom keyframes */
   @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-
-  @keyframes orbit {
-    from {
-      transform: rotate(0deg) translateX(120px) rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg) translateX(120px) rotate(-360deg);
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
   }
 
   @keyframes pulse-glow {
-    0% {
-      box-shadow: var(--glow-purple);
-    }
-    100% {
-      box-shadow: var(--glow-blue);
-    }
+    0% { box-shadow: var(--glow-purple); }
+    100% { box-shadow: var(--glow-blue); }
   }
 
   @keyframes curtain-reveal {
-    0% {
-      clip-path: inset(0 100% 0 0);
-    }
-    100% {
-      clip-path: inset(0 0 0 0);
-    }
+    0% { clip-path: inset(0 100% 0 0); }
+    100% { clip-path: inset(0 0 0 0); }
   }
 
   @keyframes soundwave {
-    0%, 100% {
-      transform: scaleY(1);
-    }
-    50% {
-      transform: scaleY(1.5);
-    }
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.5); }
   }
 
   .soundwave-animation {

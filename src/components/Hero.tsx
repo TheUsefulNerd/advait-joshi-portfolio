@@ -44,7 +44,7 @@ export function Hero() {
         {/* CTA Button Group */}
         <div className="flex flex-wrap items-center gap-4">
           {/* Portfolio — outline/secondary */}
-          <Link to="/">
+          <Link to="/portfolio/about">
             <Button
               size="lg"
               variant="outline"
@@ -67,7 +67,7 @@ export function Hero() {
 
           {/* My Resume — plain text, tertiary, no icon, opens Google Drive */}
           <a
-            href="#resume-placeholder"
+            href="https://drive.google.com/file/d/1_tN3lFRTE-CPvXKdJnqyi-5P2DcLxo4O/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -85,7 +85,7 @@ export function Hero() {
             {[
               { icon: Github, href: 'https://github.com/TheUsefulNerd', label: 'GitHub' },
               { icon: Linkedin, href: 'https://linkedin.com/in/advaitszone', label: 'LinkedIn' },
-              { icon: Mail, href: 'mailto:advait@example.com', label: 'Email' },
+              { icon: Mail, href: 'mailto:advaitszone@gmail.com', label: 'Email' },
             ].map((social, index) => {
               const Icon = social.icon;
               return (
@@ -110,7 +110,7 @@ export function Hero() {
           <div className="relative">
 
             {/* Main Photo Circle */}
-            <div className="w-80 h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-purple via-blue to-pink p-1 float-animation">
+            <div className="hero-photo-ring w-80 h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-purple via-blue to-pink p-1 float-animation">
               <div className="w-full h-full rounded-full bg-background-secondary flex items-center justify-center overflow-hidden">
                 <div className="w-full h-full rounded-full bg-gradient-to-br from-purple/20 via-blue/20 to-pink/20 flex items-center justify-center">
                   <img
@@ -126,12 +126,12 @@ export function Hero() {
 
 
 
-            {/* Floating Soundwave Bars */}
+            {/* Floating Soundwave Bars — left */}
             <div className="absolute -left-12 top-1/2 transform -translate-y-1/2 flex space-x-1">
               {Array.from({ length: 5 }).map((_, index) => (
                 <div
                   key={index}
-                  className="w-1 bg-gradient-to-t from-purple to-blue rounded-full soundwave-animation"
+                  className="soundwave-bar-left w-1 bg-gradient-to-t from-purple to-blue rounded-full soundwave-animation"
                   style={{
                     height: `${30 + index * 10}px`,
                     animationDelay: `${index * 0.1}s`,
@@ -140,11 +140,12 @@ export function Hero() {
               ))}
             </div>
 
+            {/* Floating Soundwave Bars — right */}
             <div className="absolute -right-12 top-1/2 transform -translate-y-1/2 flex space-x-1">
               {Array.from({ length: 5 }).map((_, index) => (
                 <div
                   key={index}
-                  className="w-1 bg-gradient-to-t from-blue to-pink rounded-full soundwave-animation"
+                  className="soundwave-bar-right w-1 bg-gradient-to-t from-blue to-pink rounded-full soundwave-animation"
                   style={{
                     height: `${50 - index * 8}px`,
                     animationDelay: `${index * 0.15}s`,
@@ -154,7 +155,7 @@ export function Hero() {
             </div>
 
             {/* Pulsing Glow Effect */}
-            <div className="absolute inset-0 rounded-full pulse-glow opacity-30 pointer-events-none" />
+            <div className="hero-pulse-glow absolute inset-0 rounded-full pulse-glow opacity-30 pointer-events-none" />
           </div>
         </div>
       </div>
