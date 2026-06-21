@@ -187,24 +187,7 @@ const Experience = () => {
             </div>
           </div>
 
-          {/* Summary Stats */}
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            {[
-              { label: 'Total Internships', value: '5+', color: 'purple' },
-              { label: 'Research Projects', value: '10+', color: 'blue' },
-              { label: 'Organizations', value: '5', color: 'pink' },
-              { label: 'Years Experience', value: '2+', color: 'purple' }
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className={`text-3xl md:text-4xl font-bold mb-2 ${stat.color === 'purple' ? 'text-purple' : stat.color === 'blue' ? 'text-blue' : 'text-pink'}`}>
-                  {stat.value}
-                </div>
-                <div className="text-foreground-muted text-sm">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
+
         </div>
       </div>
       <Footer />

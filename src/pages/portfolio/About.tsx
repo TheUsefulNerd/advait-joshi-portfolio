@@ -41,12 +41,7 @@ const highlights = [
   },
 ];
 
-const quickStats = [
-  { label: 'Internships', value: '5+' },
-  { label: 'Research Papers (Ongoing)', value: '3+' },
-  { label: 'Projects', value: '10+' },
-  { label: 'Technologies', value: '25+' },
-];
+
 
 const interests = [
   'Machine Learning', 'Artificial Intelligence', 'Blockchain Technology',
@@ -153,15 +148,7 @@ const PortfolioAbout = () => {
             })}
           </div>
 
-          {/* ── Stats Row ────────────────────────────────────────────────── */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            {quickStats.map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="text-4xl font-bold gradient-text mb-1">{s.value}</div>
-                <div className="text-foreground-muted text-sm">{s.label}</div>
-              </div>
-            ))}
-          </div>
+
 
           {/* ── My Journey ───────────────────────────────────────────────── */}
           <Card className="p-8 bg-card border-border mb-12">

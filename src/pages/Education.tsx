@@ -210,27 +210,7 @@ const Education = () => {
             </Card>
           </div>
 
-          {/* Education Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            {[
-              { label: 'Current GPA', value: '8.14/10', color: 'purple' },
-              { label: 'Certifications', value: '5+', color: 'blue' },
-              { label: 'Research Papers', value: '3(Ongoing)', color: 'pink' },
-              { label: 'Years of Study', value: '2+', color: 'purple' }
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className={`text-3xl md:text-4xl font-bold mb-2 ${
-                  stat.color === 'purple' ? 'text-purple' : 
-                  stat.color === 'blue' ? 'text-blue' : 'text-pink'
-                }`}>
-                  {stat.value}
-                </div>
-                <div className="text-foreground-muted text-sm">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
+
         </div>
       </div>
       <Footer />
