@@ -206,7 +206,7 @@
 
 .blog-submit-btn {
   background-color: var(--blog-accent);
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   border: none;
   border-radius: 6px;
   padding: 0.625rem 1.5rem;
