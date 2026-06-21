@@ -13,8 +13,8 @@ const portfolioItems = [
   { name: 'About Me',   path: '/portfolio/about',      icon: User },
   { name: 'Experience', path: '/portfolio/experience',  icon: Briefcase },
   { name: 'Projects',   path: '/portfolio/projects',    icon: FolderOpen },
-  { name: 'Education',  path: '/portfolio/education',   icon: GraduationCap },
-  { name: 'Contact',    path: '/portfolio/contact',     icon: Mail },
+  { name: 'Education',  path: '/portfolio/about#education',   icon: GraduationCap },
+  { name: 'Contact',    path: '/portfolio/about#contact',     icon: Mail },
 ];
 
 // ── Blog sub-nav items ─────────────────────────────────────────────────────────

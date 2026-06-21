@@ -13,8 +13,6 @@ import PortfolioAbout from "./pages/portfolio/About";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
-import Education from "./pages/Education";
-import Contact from "./pages/Contact";
 
 // Blog pages
 import BlogHome from "./pages/blog/BlogHome";
@@ -54,15 +52,11 @@ const App = () => (
               <Route path="/portfolio/experience" element={<Experience />} />
               <Route path="/portfolio/projects" element={<Projects />} />
               <Route path="/portfolio/skills" element={<Skills />} />
-              <Route path="/portfolio/education" element={<Education />} />
-              <Route path="/portfolio/contact" element={<Contact />} />
 
               {/* Legacy flat routes — redirect-friendly aliases */}
               <Route path="/experience" element={<Experience />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/skills" element={<Skills />} />
-              <Route path="/education" element={<Education />} />
-              <Route path="/contact" element={<Contact />} />
 
               {/* Blog mode routes */}
               <Route path="/blog" element={<BlogHome />} />
