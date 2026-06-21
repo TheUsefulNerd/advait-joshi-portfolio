@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -11,7 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import {
   Brain, Shield, Code2, Github, Linkedin, Mail,
   MapPin, Zap, GraduationCap, Calendar, Award,
-  BookOpen, Send
+  BookOpen, Send, Phone
 } from 'lucide-react';
 
 const RESUME_URL =
@@ -82,9 +83,28 @@ const socialLinks = [
   { name: 'Email', icon: Mail, href: 'mailto:advaitszone@gmail.com' },
 ];
 
+const contactMethods = [
+  { title: 'Email', value: 'advaitszone@gmail.com', href: 'mailto:advaitszone@gmail.com', icon: Mail, color: 'purple' },
+  { title: 'Phone', value: '+91 9515445545', href: 'tel:+919515445545', icon: Phone, color: 'blue' },
+  { title: 'Location', value: 'Hyderabad, India', href: '#', icon: MapPin, color: 'pink' }
+];
+
 const PortfolioAbout = () => {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const { toast } = useToast();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location.hash]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -308,15 +328,24 @@ const PortfolioAbout = () => {
               </div>
 
               <div className="space-y-4">
-                {socialLinks.map((s, i) => {
-                  const Icon = s.icon;
+                {contactMethods.map((method, index) => {
+                  const Icon = method.icon;
                   return (
-                    <Card key={i} className="p-5 bg-card hover:bg-card-hover border-border hover:border-purple/30 transition-all duration-300">
-                      <a href={s.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
-                        <div className="p-2 rounded-full bg-purple/20 group-hover:bg-purple/30 transition-all">
-                          <Icon className="w-5 h-5 text-purple" />
+                    <Card key={index} className="p-5 bg-card hover:bg-card-hover border-border hover:border-purple/30 transition-all duration-300">
+                      <a href={method.href} className="flex items-center gap-3 group">
+                        <div className={`p-2 rounded-full transition-all ${
+                          method.color === 'purple' ? 'bg-purple/20 group-hover:bg-purple/30' :
+                          method.color === 'blue' ? 'bg-blue/20 group-hover:bg-blue/30' : 'bg-pink/20 group-hover:bg-pink/30'
+                        }`}>
+                          <Icon className={`w-5 h-5 ${
+                            method.color === 'purple' ? 'text-purple' :
+                            method.color === 'blue' ? 'text-blue' : 'text-pink'
+                          }`} />
                         </div>
-                        <span className="font-medium group-hover:text-purple transition-colors">{s.name}</span>
+                        <div>
+                          <p className="text-xs text-foreground-muted mb-0.5">{method.title}</p>
+                          <p className="text-sm font-medium group-hover:text-foreground transition-colors">{method.value}</p>
+                        </div>
                       </a>
                     </Card>
                   );
@@ -333,10 +362,9 @@ const PortfolioAbout = () => {
                 </Card>
 
                 <div className="text-center">
-                  <p className="text-foreground-muted text-xs mb-3">View or download my full resume</p>
                   <a href={RESUME_URL} target="_blank" rel="noopener noreferrer">
-                    <Button variant="ghost" className="text-foreground-muted hover:text-foreground text-sm underline-offset-4 hover:underline">
-                      My Resume ↗
+                    <Button variant="ghost" className="text-foreground-muted hover:text-foreground text-sm font-medium underline-offset-4 hover:underline">
+                      My Resume
                     </Button>
                   </a>
                 </div>
