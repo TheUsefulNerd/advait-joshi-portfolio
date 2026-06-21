@@ -3,12 +3,43 @@ import { Badge } from '@/components/ui/badge';
 import { Calendar, MapPin, Building, ExternalLink } from 'lucide-react';
 
 const experiences = [
+
+  {
+    title: 'Research Intern',
+    company: 'Indian Institute of Technology (IIT) Kanpur',
+    location: 'Remote',
+    duration: 'June 2025 - Present',
+    type: 'Current',
+    description: 'Research areas: Mechanistic Interpretability, RAG, Benchmaring.',
+    achievements: [
+      'Researching and experimenting in the field of Mechanistic Interpretability.',
+      'Experimenting on various LLM\'s using PEFT.',
+    ],
+    skills: ['Mechanistic Interpretability', 'PEFT (LoRA/QLoRA)', 'RAG Pipelines', 'LLM Architectures'],
+    color: 'pink'
+  },
+  {
+    title: 'Research Intern',
+    company: 'Indian Institute of Technology (IIT) Patna',
+    location: 'Remote',
+    duration: 'April 2025 - December 2025',
+    type: 'Completed',
+    description: 'Focused on advanced machine learning techniques and their applications in real-world scenarios. Worked on interdisciplinary research projects.',
+    achievements: [
+      'Implemented state-of-the-art ML models for data classification',
+      'Conducted extensive literature review on emerging AI techniques',
+      'Developed prototypes for academic research validation',
+      'Mentored junior students in research methodologies'
+    ],
+    skills: ['Machine Learning', 'Data Science', 'Research', 'Python', 'Jupyter Notebooks'],
+    color: 'purple'
+  },
   {
     title: 'ML Engineer Intern',
     company: 'TechPeek',
     location: 'Remote',
-    duration: 'September 2025 - Present',
-    type: 'Current',
+    duration: 'September 2025 - October 2025',
+    type: 'Completed',
     description: 'Building and extending ActivityWatch into a deployable product using Flask, Peewee, and REST APIs, while integrating small language models to improve event tracking intelligence.',
     achievements: [
       'Revamping ActivityWatch, an open-source offline work tracker, into a commercial product, enhancing performance, scalability, and user experience for launch.',
@@ -24,7 +55,7 @@ const experiences = [
     company: 'DRDO RCI(Research Centre Imarat),',
     location: 'Hyderabad, India',
     duration: 'August 2025 - October 2025',
-    type: 'Current',
+    type: 'Completed',
     description: 'Worked on artificial intelligence applications for defense technologies. Contributed to research and development of AI systems for strategic applications.',
     achievements: [
       'Developed AI algorithms for pattern recognition in defense systems',
@@ -35,38 +66,8 @@ const experiences = [
     skills: ['Artificial Intelligence', 'Neural Networks', 'Computer Vision', 'Python', 'Research'],
     color: 'blue'
   },
-  {
-    title: 'Research Intern',
-    company: 'Indian Institute of Technology (IIT) Kanpur',
-    location: 'Remote',
-    duration: 'June 2025 - Present',
-    type: 'Current',
-    description: 'Conducted cutting-edge research in machine learning and artificial intelligence under the guidance of renowned faculty members.',
-    achievements: [
-      'Published research findings in conference proceedings',
-      'Developed novel algorithms for deep learning applications',
-      'Collaborated with PhD students on advanced research projects',
-      'Presented research at academic conferences'
-    ],
-    skills: ['Deep Learning', 'Research Methodology', 'Academic Writing', 'PyTorch', 'Statistics'],
-    color: 'pink'
-  },
-  {
-    title: 'Research Intern',
-    company: 'Indian Institute of Technology (IIT) Patna',
-    location: 'Remote',
-    duration: 'April 2025 - Present',
-    type: 'Current',
-    description: 'Focused on advanced machine learning techniques and their applications in real-world scenarios. Worked on interdisciplinary research projects.',
-    achievements: [
-      'Implemented state-of-the-art ML models for data classification',
-      'Conducted extensive literature review on emerging AI techniques',
-      'Developed prototypes for academic research validation',
-      'Mentored junior students in research methodologies'
-    ],
-    skills: ['Machine Learning', 'Data Science', 'Research', 'Python', 'Jupyter Notebooks'],
-    color: 'purple'
-  },
+  
+  
   {
     title: 'Blockchain Developer Intern',
     company: 'Inspiring Wave',
