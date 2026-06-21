@@ -21,13 +21,12 @@ export const Footer = () => {
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-foreground">Advait Joshi</h3>
-                <p className="text-sm text-foreground-muted">ML Engineer & AI Researcher</p>
+                <p className="text-sm text-foreground-muted">AI Engineer</p>
               </div>
             </div>
             
             <p className="text-foreground-muted leading-relaxed mb-6 max-w-md">
-              Passionate about leveraging cutting-edge technology to solve real-world problems. 
-              Currently building the future of AI and Software innovations.
+              AI Engineer specializing in agentic systems, RAG pipelines, and multi-agent orchestration.
             </p>
 
             <div className="flex items-center space-x-2 text-foreground-muted text-sm">
@@ -41,10 +40,10 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold text-foreground mb-4">Quick Links</h4>
             <div className="space-y-2">
               {[
-                { name: 'Experience', path: '/experience' },
-                { name: 'Projects', path: '/projects' },
-                { name: 'Research', path: '/research' },
-                { name: 'Skills', path: '/skills' }
+                { name: 'About Me', path: '/portfolio/about' },
+                { name: 'Experience', path: '/portfolio/experience' },
+                { name: 'Projects', path: '/portfolio/projects' },
+                { name: 'Education', path: '/portfolio/about#education' }
               ].map((link, index) => (
                 <Link
                   key={index}
@@ -94,7 +93,7 @@ export const Footer = () => {
                 <Zap className="w-4 h-4 text-purple" />
                 <span>Available for opportunities</span>
               </div>
-              <span>© 2025 - Advait Joshi</span>
+              <span>© {new Date().getFullYear()} - Advait Joshi</span>
             </div>
           </div>
         </div>
