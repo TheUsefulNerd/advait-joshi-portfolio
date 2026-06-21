@@ -5,7 +5,37 @@ import { Calendar, MapPin, Building } from 'lucide-react';
 
 const experiences = [
   {
-    title: 'Research Intern',
+    title: 'AI Engineer Intern',
+    company: 'DRDO – RCI',
+    location: 'Hyderabad',
+    duration: 'Aug 2025 - Oct 2025',
+    type: 'Completed',
+    description: 'Built multi-route RAG chatbot for the DRDO intranet with separate "General" and "Document" modes.',
+    achievements: [
+      'Built a conversation memory system backed by PostgreSQL to persist user sessions and message history.',
+      'Deployed quantized LLaMA 3.2 1B models using llama.cpp - 3x faster inference.',
+      'Implemented retrieval pipeline using LangChain, ChromaDB, and reranking, and proposed database-integrated "third route" for secure intranet-wide retrieval.'
+    ],
+    skills: ['Python', 'LangChain', 'ChromaDB', 'PostgreSQL', 'llama.cpp', 'RAG Pipelines'],
+    color: 'blue'
+  },
+  {
+    title: 'MLE Intern',
+    company: 'Techpeek',
+    location: 'Banglore(Remote)',
+    duration: 'Sep 2025 - Oct 2025',
+    type: 'Completed',
+    description: 'Engineered an enterprise AI platform for law firms by adapting the open-source ActivityWatch framework into a multi-tenant product.',
+    achievements: [
+      'Designed complex data flows and architectures between frontend and backend to integrate Small Language Models (SLMs) for automated document intelligence and workflow automation.',
+      'Engineered a Project Management module with full database integration, allowing users to track projects, billing, and progress in real-time.',
+      'Refactored system architectures to align with enterprise standards, focusing on scalability and seamless AI integration.'
+    ],
+    skills: ['Python', 'Flask', 'SLMs', 'SQLite', 'Frontend Development'],
+    color: 'purple'
+  },
+  {
+    title: 'Research Intern(Part-Time)',
     company: 'IIT Kanpur',
     location: 'Remote',
     duration: 'Jun 2025 - Present',
@@ -14,39 +44,8 @@ const experiences = [
     achievements: [
       'Streamlined open-source workflows to improve system reliability and cross-platform performance.'
     ],
-    skills: ['Python', 'LLMs', 'RAG Pipelines', 'Document AI', 'Research'],
+    skills: ['Python', 'LLMs', 'Document AI', 'Research'],
     color: 'pink'
-  },
-  {
-    title: 'ML Engineer Intern',
-    company: 'TechPeek',
-    location: 'Remote',
-    duration: 'Sep 2025 - Oct 2025',
-    type: 'Completed',
-    description: 'Engineered an enterprise AI platform for law firms by adapting the open-source ActivityWatch framework into a multi-tenant product.',
-    achievements: [
-      'Designed complex data flows between frontend and backend to integrate Small Language Models for automated document intelligence and workflow automation.',
-      'Engineered a Project Management module with full database integration for real-time project, billing, and progress tracking.',
-      'Refactored system architectures to align with enterprise standards, focusing on scalability and seamless AI integration.'
-    ],
-    skills: ['Python', 'Flask', 'SLMs', 'SQLite', 'REST API Development', 'Frontend Development'],
-    color: 'purple'
-  },
-  {
-    title: 'AI Engineer Intern',
-    company: 'DRDO RCI',
-    location: 'Hyderabad, India',
-    duration: 'Aug 2025 - Oct 2025',
-    type: 'Completed',
-    description: 'Built a multi-route RAG chatbot for the DRDO intranet with separate General and Document modes.',
-    achievements: [
-      'Built a conversation memory system backed by PostgreSQL to persist user sessions and message history.',
-      'Deployed quantized LLaMA 3.2 1B models using llama.cpp — 3x faster inference.',
-      'Implemented retrieval pipeline using LangChain, ChromaDB, and reranking.',
-      'Proposed a database-integrated third route for secure intranet-wide retrieval.'
-    ],
-    skills: ['Python', 'LangChain', 'ChromaDB', 'PostgreSQL', 'llama.cpp', 'RAG Pipelines', 'FastAPI'],
-    color: 'blue'
   }
 ];
 

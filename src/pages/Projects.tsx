@@ -8,32 +8,16 @@ import { Link } from 'react-router-dom'
 
 const projects = [
   {
-    title: 'ShopKeeper AI',
-    description: 'A 9-agent retail automation system built with LangGraph where agents coordinate exclusively through structured state — no natural language between agents. Strict separation between LLM agents (Sales, Recommendation, Supplier, Post-Purchase) and deterministic agents (Inventory, Payment, Fulfillment, Loyalty).',
-    image: '',
-    category: 'Agentic AI',
-    technologies: ['Python', 'LangGraph', 'LangChain', 'FastAPI', 'Supabase', 'Redis', 'PostgreSQL', 'Next.js 15'],
-    status: 'In Progress',
-    highlights: [
-      'Custom auth system with bcrypt + python-jose + Google OAuth 2.0, JWT role payloads, and a Redis-backed refresh token blocklist.',
-      '19-table Supabase Postgres schema with UUID primary keys, Alembic migrations, and circular FK resolution via use_alter.',
-      'Three-layer observability stack: WebSocket event stream, LangSmith for LangGraph trace archival, and OpenTelemetry for distributed request tracing across FastAPI, Redis, and Supabase — surfaced inside a live businessman dashboard with per-agent trace viewer.'
-    ],
-    demoUrl: '#',
-    githubUrl: 'https://github.com/TheUsefulNerd/ShopKeeper-AI',
-    color: 'purple',
-  },
-  {
-    title: 'Architect — AI Orchestrated Socratic Mentor',
+    title: 'Architect - AI Orchestrated Socratic Mentor',
     description: 'A full-stack AI orchestration platform that transforms project ideas into implementations via a three-phase Socratic Loop: Planner, Librarian, and Mentor — using LangGraph for multi-agent orchestration.',
     image: '',
     category: 'RAG',
     technologies: ['Python', 'LangGraph', 'FastAPI', 'Qdrant', 'Next.js 15', 'Supabase', 'Groq', 'Gemini'],
     status: 'Completed',
     highlights: [
-      'RAG pipeline with Qdrant vector search and Gemini text-embedding-004 for Perplexity-style cited responses tailored to specific tech stacks.',
-      'LLaMA 3.3-70B via Groq with Gemini fallback.',
-      'Deployed with Next.js 15 and FastAPI, Supabase PostgreSQL + RLS for per-user data isolation with Google and GitHub OAuth.'
+      'Built a full-stack AI orchestration platform that transforms project ideas into implementations via a three-phase Socratic Loop (Planner → Librarian → Mentor), using LangGraph for multi-agent orchestration and Groq (LLaMA 3.3-70B) with Gemini fallback.',
+      'Engineered a RAG pipeline with Qdrant vector search and Gemini text-embedding-004 to retrieve and synthesize documentation, delivering Perplexity-style cited responses tailored to specific tech stacks.',
+      'Deployed a production system using Next.js 15 and FastAPI, utilizing Supabase (PostgreSQL + RLS) for secure auth and per-user data isolation with Google and GitHub OAuth integration.'
     ],
     demoUrl: 'https://architect-ochre.vercel.app',
     githubUrl: 'https://github.com/TheUsefulNerd/Architect',
@@ -47,13 +31,29 @@ const projects = [
     technologies: ['Python', 'LangChain', 'BM25', 'Pydantic', 'FastAPI'],
     status: 'Completed',
     highlights: [
-      '5-module pipeline: Safety → BM25 Retriever → LLM Classifier → Pydantic Validator → Responder.',
-      '12-signal deterministic risk scorer that pre-escalates high-risk tickets (fraud, outages, prompt injections) before the LLM is called, reducing hallucination risk and API cost.',
-      'Zero-hallucination output via Pydantic validation, query expansion synonyms, and a post-processing URL interceptor grounded strictly in the retrieved corpus.'
+      'Built a multi-domain support triage agent processing tickets across HackerRank, Claude, and Visa using a 5-module pipeline - Safety → BM25 Retriever → LLM Classifier → Pydantic Validator → Responder.',
+      'Implemented a 12-signal deterministic risk scorer that pre-escalates high-risk tickets (fraud, outages, injections) before the LLM is called, reducing hallucination risk and API cost.',
+      'Achieved zero-hallucination output using Pydantic validation, query expansion synonyms, and a post-processing URL interceptor grounded strictly in the retrieved corpus.'
     ],
     demoUrl: '#',
     githubUrl: '#',
     color: 'pink',
+  },
+  {
+    title: 'ShopKeeper AI - Agentic Retail System',
+    description: 'A 9-agent retail automation system orchestrated via LangGraph where agents coordinate exclusively through structured state — no natural language between agents.',
+    image: '',
+    category: 'Agentic AI',
+    technologies: ['Python', 'LangGraph', 'FastAPI', 'Supabase', 'Redis', 'PostgreSQL', 'Next.js 15'],
+    status: 'In Progress',
+    highlights: [
+      'Building a 9-agent retail automation system orchestrated via LangGraph where agents coordinate exclusively through structured state - no natural language between agents - with a strict separation between LLM agents (Sales, Recommendation, Supplier, Post-Purchase) and deterministic agents (Inventory, Payment, Fulfillment, Loyalty).',
+      'Engineered a custom auth system from scratch using bcrypt + python-jose + Google OAuth 2.0 with JWT role payloads, Redis-backed refresh token blocklist, and a 19-table Supabase Postgres schema with UUID primary keys, Alembic migrations, and circular FK resolution via use_alter.',
+      'Designed a three-layer observability stack - WebSocket event stream for real-time agent activity, LangSmith for LangGraph trace archival, and OpenTelemetry for distributed request tracing across FastAPI, Redis, and Supabase - surfaced live inside a businessman dashboard with per-agent trace viewer.'
+    ],
+    demoUrl: '#',
+    githubUrl: 'https://github.com/TheUsefulNerd/ShopKeeper-AI',
+    color: 'purple',
   }
 ];
 
