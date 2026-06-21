@@ -11,10 +11,10 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [
-    { enforce: 'pre', ...mdx() },
     react(),
     mode === "development" && componentTagger()
   ].filter(Boolean),
+  assetsInclude: ['**/*.md'],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

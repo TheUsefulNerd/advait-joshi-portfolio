@@ -1,30 +1,26 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import type { ContentFeedbackInsert } from '../../lib/supabase';
 import '../../styles/blog.css';
 
 const BlogFeedback = () => {
-  const location = useLocation();
-  const [postSlug, setPostSlug] = useState(
-    new URLSearchParams(location.search).get('post') ?? ''
-  );
-  const [clarityRating, setClarityRating] = useState(0);
-  const [styleRating, setStyleRating] = useState(0);
+  const [name, setName] = useState('');
+  const [postRef, setPostRef] = useState('');
   const [comment, setComment] = useState('');
+  const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!postSlug) return;
+    if (!comment.trim()) return;
 
     setStatus('submitting');
 
     const payload: ContentFeedbackInsert = {
-      post_slug: postSlug,
-      clarity_rating: clarityRating || null,
-      style_rating: styleRating || null,
-      comment: comment.trim() || null,
+      post_slug: postRef.trim() || '',
+      clarity_rating: null,
+      style_rating: null,
+      comment: comment.trim(),
     };
 
     const { error } = await supabase.from('content_feedback').insert(payload);
@@ -35,37 +31,11 @@ const BlogFeedback = () => {
     } else {
       setStatus('success');
       setComment('');
-      setClarityRating(0);
-      setStyleRating(0);
+      setPostRef('');
+      setName('');
+      setEmail('');
     }
   };
-
-  const StarRating = ({
-    value,
-    onChange,
-    label,
-  }: {
-    value: number;
-    onChange: (v: number) => void;
-    label: string;
-  }) => (
-    <div style={{ marginBottom: '1.5rem' }}>
-      <label className="blog-form-label">{label}</label>
-      <div style={{ display: 'flex', gap: '0.25rem', marginTop: '0.25rem' }}>
-        {[1, 2, 3, 4, 5].map((star) => (
-          <button
-            key={star}
-            type="button"
-            className={`star-btn ${star <= value ? 'filled' : ''}`}
-            onClick={() => onChange(star)}
-            aria-label={`${star} star`}
-          >
-            ★
-          </button>
-        ))}
-      </div>
-    </div>
-  );
 
   return (
     <div className="blog-page">
@@ -94,47 +64,67 @@ const BlogFeedback = () => {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit}>
-            {/* Post reference */}
-            <div style={{ marginBottom: '1.5rem' }}>
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div>
+              <label className="blog-form-label" htmlFor="name">
+                Name
+              </label>
+              <input
+                id="name"
+                className="blog-input"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Your name"
+              />
+            </div>
+
+            <div>
               <label className="blog-form-label" htmlFor="post-ref">
-                Post slug / reference *
+                Which post are you writing about?
               </label>
               <input
                 id="post-ref"
                 className="blog-input"
                 type="text"
-                required
-                value={postSlug}
-                onChange={(e) => setPostSlug(e.target.value)}
-                placeholder="e.g. start-here"
+                value={postRef}
+                onChange={(e) => setPostRef(e.target.value)}
+                placeholder="Title or topic of the post"
               />
-              <span style={{ fontSize: '0.75rem', color: 'var(--blog-text-muted)' }}>
-                Found in the post URL after /blog/
-              </span>
             </div>
 
-            <StarRating value={clarityRating} onChange={setClarityRating} label="Clarity — How easy was it to follow?" />
-            <StarRating value={styleRating} onChange={setStyleRating} label="Style — Was the writing engaging and well-paced?" />
-
-            {/* Comment */}
-            <div style={{ marginBottom: '1.5rem' }}>
+            <div>
               <label className="blog-form-label" htmlFor="comment">
-                What would make this easier to follow? (optional)
+                Your feedback *
               </label>
               <textarea
                 id="comment"
                 className="blog-input"
-                rows={5}
+                rows={6}
+                required
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                placeholder="Any specific section that was confusing, or suggestions for examples..."
+                placeholder="What worked, what didn't, what you'd like to see explained differently..."
                 style={{ resize: 'vertical', fontFamily: 'inherit', lineHeight: '1.6' }}
               />
             </div>
 
+            <div>
+              <label className="blog-form-label" htmlFor="email">
+                Email address
+              </label>
+              <input
+                id="email"
+                className="blog-input"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="only if you'd like me to respond"
+              />
+            </div>
+
             {status === 'error' && (
-              <p style={{ color: '#C0392B', fontSize: '0.875rem', marginBottom: '1rem' }}>
+              <p style={{ color: '#C0392B', fontSize: '0.875rem', margin: 0 }}>
                 Something went wrong. Please try again.
               </p>
             )}
@@ -142,10 +132,10 @@ const BlogFeedback = () => {
             <button
               type="submit"
               className="blog-submit-btn"
-              disabled={status === 'submitting' || !postSlug}
-              style={{ opacity: status === 'submitting' ? 0.6 : 1 }}
+              disabled={status === 'submitting' || !comment.trim()}
+              style={{ opacity: status === 'submitting' ? 0.6 : 1, marginTop: '0.5rem' }}
             >
-              {status === 'submitting' ? 'Submitting…' : 'Submit Feedback'}
+              {status === 'submitting' ? 'Sending…' : 'Send Feedback'}
             </button>
           </form>
         )}

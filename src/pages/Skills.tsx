@@ -1,68 +1,22 @@
 import { Card } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 
 const skillCategories = [
   {
-    title: 'Programming Languages',
-    skills: [
-      { name: 'Python', level: 95, color: 'from-blue-500 to-blue-600' },
-      { name: 'SQL', level: 90, color: 'from-pink-500 to-pink-600' },
-      { name: 'JavaScript/TypeScript', level: 70, color: 'from-yellow-500 to-yellow-600' },
-      { name: 'Solidity', level: 40, color: 'from-purple-500 to-purple-600' },
-      { name: 'C/C++', level: 95, color: 'from-green-500 to-green-600' }
-    ]
+    title: 'Languages & Frameworks',
+    skills: ['Python', 'JavaScript', 'SQL', 'FastAPI', 'PyTorch', 'React.js', 'Next.js 15', 'Node.js']
   },
   {
-    title: 'Machine Learning & AI',
-    skills: [
-      { name: 'PyTorch', level: 88, color: 'from-red-500 to-red-600' },
-      { name: 'Scikit-learn', level: 92, color: 'from-blue-500 to-blue-600' },      { name: 'NLP', level: 90, color: 'from-green-500 to-green-600' },
-      { name: 'Deep Learning', level: 95, color: 'from-pink-500 to-pink-600' },
-      { name: 'Langchain', level: 92, color: 'from-blue-500 to-blue-600' }, 
-      { name: 'RAG', level: 98, color: 'from-green-500 to-green-600' },
-      { name: 'Agentic AI', level: 80, color: 'from-green-500 to-green-600' },
-    ]
+    title: 'AI & Orchestration',
+    skills: ['LangGraph', 'LangChain', 'RAG Pipelines', 'Agentic Workflows', 'LLM Fine-tuning', 'Hugging Face', 'SLMs', 'llama.cpp']
   },
   {
-    title: 'Data Science & Analytics',
-    skills: [
-      { name: 'Pandas', level: 95, color: 'from-blue-500 to-blue-600' },
-      { name: 'NumPy', level: 93, color: 'from-yellow-500 to-yellow-600' },
-      { name: 'Data Visualization', level: 90, color: 'from-purple-500 to-purple-600' },
-      { name: 'Statistical Analysis', level: 85, color: 'from-green-500 to-green-600' },
-      { name: 'SQL', level: 90, color: 'from-red-500 to-red-600' },    ]
+    title: 'Databases & Vector Stores',
+    skills: ['PostgreSQL', 'Supabase', 'Qdrant', 'ChromaDB', 'FAISS', 'MySQL']
   },
   {
-    title: 'Blockchain & Web3',
-    skills: [
-      { name: 'Ethereum', level: 88, color: 'from-purple-500 to-purple-600' },
-      { name: 'Smart Contracts', level: 85, color: 'from-blue-500 to-blue-600' },
-      { name: 'Web3.js', level: 82, color: 'from-green-500 to-green-600' },
-      { name: 'DApp Development', level: 80, color: 'from-yellow-500 to-yellow-600' },
-      { name: 'Hardhat', level: 78, color: 'from-pink-500 to-pink-600' }
-    ]
-  },
-  {
-    title: 'Web Development',
-    skills: [
-      { name: 'React', level: 92, color: 'from-blue-500 to-blue-600' },
-      { name: 'Node.js', level: 87, color: 'from-green-500 to-green-600' },
-      { name: 'HTML/CSS', level: 95, color: 'from-orange-500 to-orange-600' },
-      { name: 'Tailwind CSS', level: 80, color: 'from-purple-500 to-purple-600' },
-      { name: 'Express.js', level: 85, color: 'from-yellow-500 to-yellow-600' },
-      { name: 'MongoDB', level: 80, color: 'from-red-500 to-red-600' }
-    ]
-  },
-  {
-    title: 'Tools & Technologies',
-    skills: [
-      { name: 'Git/GitHub', level: 95, color: 'from-purple-500 to-purple-600' },
-      { name: 'Docker', level: 90, color: 'from-blue-500 to-blue-600' },
-      { name: 'Jupyter Notebooks', level: 95, color: 'from-orange-500 to-orange-600' },
-      { name: 'Linux/Unix', level: 95, color: 'from-green-500 to-green-600' },
-      { name: 'MLOps', level: 78, color: 'from-pink-500 to-pink-600' }
-    ]
+    title: 'Tools & Infrastructure',
+    skills: ['Docker', 'Git', 'Vercel', 'Render', 'Postman', 'OpenTelemetry', 'LangSmith']
   }
 ];
 
@@ -92,24 +46,11 @@ const Skills = () => {
                   {category.title}
                 </h2>
                 
-                <div className="space-y-6">
+                <div className="flex flex-wrap gap-3">
                   {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="text-foreground font-medium">{skill.name}</span>
-                        <span className="text-foreground-muted text-sm">{skill.level}%</span>
-                      </div>
-                      <div className="relative">
-                        <Progress 
-                          value={skill.level} 
-                          className="h-2 bg-background-secondary"
-                        />
-                        <div 
-                          className={`absolute top-0 left-0 h-2 bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000`}
-                          style={{ width: `${skill.level}%` }}
-                        />
-                      </div>
-                    </div>
+                    <Badge key={skillIndex} variant="outline" className="text-sm py-1.5 px-3 bg-background/50 border-border hover:bg-background/70">
+                      {skill}
+                    </Badge>
                   ))}
                 </div>
               </Card>

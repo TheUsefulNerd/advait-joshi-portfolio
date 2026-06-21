@@ -4,104 +4,49 @@ import { Button } from '@/components/ui/button';
 import { Calendar, MapPin, Building } from 'lucide-react';
 
 const experiences = [
-
-  {
-    title: 'Research Intern',
-    company: 'Indian Institute of Technology (IIT) Kanpur',
-    location: 'Remote',
-    duration: 'June 2025 - Present',
-    type: 'Current',
-    description: 'Research areas: Mechanistic Interpretability, RAG, Benchmaring.',
-    achievements: [
-      'Researching and experimenting in the field of Mechanistic Interpretability.',
-      'Experimenting on various LLM\'s using PEFT.',
-    ],
-    skills: ['Mechanistic Interpretability', 'PEFT (LoRA/QLoRA)', 'RAG Pipelines', 'LLM Architectures'],
-    color: 'pink'
-  },
-  {
-    title: 'Research Intern',
-    company: 'Indian Institute of Technology (IIT) Patna',
-    location: 'Remote',
-    duration: 'April 2025 - December 2025',
-    type: 'Completed',
-    description: 'Focused on advanced machine learning techniques and their applications in real-world scenarios. Worked on interdisciplinary research projects.',
-    achievements: [
-      'Implemented state-of-the-art ML models for data classification',
-      'Conducted extensive literature review on emerging AI techniques',
-      'Developed prototypes for academic research validation',
-      'Mentored junior students in research methodologies'
-    ],
-    skills: ['Machine Learning', 'Data Science', 'Research', 'Python', 'Jupyter Notebooks'],
-    color: 'purple'
-  },
-  {
-    title: 'ML Engineer Intern',
-    company: 'TechPeek',
-    location: 'Remote',
-    duration: 'September 2025 - October 2025',
-    type: 'Completed',
-    description: 'Building and extending ActivityWatch into a deployable product using Flask, Peewee, and REST APIs, while integrating small language models to improve event tracking intelligence.',
-    achievements: [
-      'Revamping ActivityWatch, an open-source offline work tracker, into a commercial product, enhancing performance, scalability, and user experience for launch.',
-      'Developing full-stack features using Flask, Peewee ORM, and SQLite, building new frontend pages and backend APIs for seamless data synchronization and event tracking.',
-      'Integrating small language models (SLMs) to enable intelligent categorization and context-aware tracking of user activities.',
-      'Collaborating on REST API design, memory architecture, and abstract memory modules to ensure efficient event storage, retrieval, and model inference integration.'
-    ],
-    skills: ['Python', 'Flask', 'Peewee ORM', 'SQLite', 'REST API Development', 'Frontend Development (React.js/Vue.js)','LLMOps', 'API Integration & Testing', 'Version Control'],
-    color: 'purple'
-  },
   {
     title: 'AI Engineer Intern',
-    company: 'DRDO RCI(Research Centre Imarat),',
-    location: 'Hyderabad, India',
-    duration: 'August 2025 - October 2025',
+    company: 'DRDO – RCI',
+    location: 'Hyderabad',
+    duration: 'Aug 2025 - Oct 2025',
     type: 'Completed',
-    description: 'Worked on artificial intelligence applications for defense technologies. Contributed to research and development of AI systems for strategic applications.',
+    description: 'Built multi-route RAG chatbot for the DRDO intranet with separate "General" and "Document" modes.',
     achievements: [
-      'Developed AI algorithms for pattern recognition in defense systems',
-      'Conducted research on neural networks for tactical applications',
-      'Presented findings to senior research scientists',
-      'Contributed to classified AI research projects'
+      'Built a conversation memory system backed by PostgreSQL to persist user sessions and message history.',
+      'Deployed quantized LLaMA 3.2 1B models using llama.cpp - 3x faster inference.',
+      'Implemented retrieval pipeline using LangChain, ChromaDB, and reranking, and proposed database-integrated "third route" for secure intranet-wide retrieval.'
     ],
-    skills: ['Artificial Intelligence', 'Neural Networks', 'Computer Vision', 'Python', 'Research'],
+    skills: ['Python', 'LangChain', 'ChromaDB', 'PostgreSQL', 'llama.cpp', 'RAG Pipelines'],
     color: 'blue'
   },
-  
-  
   {
-    title: 'Blockchain Developer Intern',
-    company: 'Inspiring Wave',
+    title: 'MLE Intern',
+    company: 'Techpeek',
+    location: 'Banglore(Remote)',
+    duration: 'Sep 2025 - Oct 2025',
+    type: 'Completed',
+    description: 'Engineered an enterprise AI platform for law firms by adapting the open-source ActivityWatch framework into a multi-tenant product.',
+    achievements: [
+      'Designed complex data flows and architectures between frontend and backend to integrate Small Language Models (SLMs) for automated document intelligence and workflow automation.',
+      'Engineered a Project Management module with full database integration, allowing users to track projects, billing, and progress in real-time.',
+      'Refactored system architectures to align with enterprise standards, focusing on scalability and seamless AI integration.'
+    ],
+    skills: ['Python', 'Flask', 'SLMs', 'SQLite', 'Frontend Development'],
+    color: 'purple'
+  },
+  {
+    title: 'Research Intern(Part-Time)',
+    company: 'IIT Kanpur',
     location: 'Remote',
-    duration: 'April 2025 - August 2025',
-    type: 'Completed',
-    description:
-      'As a Blockchain Developer Intern, I led the end-to-end development of a meme-coin project on the Base chain, contributing to smart contract design, tokenomics, and project strategy while managing a 13-member cross-functional team.',
+    duration: 'Jun 2025 - Present',
+    type: 'Current',
+    description: 'Contributing to the development of legal AI systems, focusing on optimizing document generation and retrieval accuracy using vanilla models.',
     achievements: [
-      'Led the development of a meme-coin project inspired by narrative-driven crypto culture on the Base chain.',
-      'Oversaw end-to-end smart contract architecture and development as the sole blockchain developer.',
-      'Managed and coordinated a 13-member cross-functional team across smart contracts, marketing, design, and research.',
-      'Co-led marketing and community growth efforts, contributing to brand narrative and go-to-market planning.',
-      'Designed the overall project structure, sprint cycles, and team workflows to align progress across functions.'
+      'Streamlined open-source workflows to improve system reliability and cross-platform performance.'
     ],
-    notes: '(Project was in active development during internship tenure.)',
-    skills: ['Solidity', 'Ethereum', 'Smart Contracts', 'Web3.js', 'DApp Development'],
-    color: 'blue'
-  },
-
-  {
-    title: 'Summer of AI Intern',
-    company: 'Swecha Telangana',
-    location: 'Hyderabad, India',
-    duration: 'May 2024 - June 2024',
-    type: 'Completed',
-    description: ' Contributed to the development of an advanced Telugu Language Model (LLM) and Text-to-Speech (TTS) Voice Avatar.',
-    achievements: [
-      'Collaborated on building the world’s first supercomputing cluster for AI with Meta, IIIT Hyderabad, Ozonetel, and TASK'
-    ],
-    skills: ['Artificial Intelligence', 'Neural Networks', 'Data Analysis', 'Ubuntu', 'OS Development', 'Python', 'Research'],
+    skills: ['Python', 'LLMs', 'Document AI', 'Research'],
     color: 'pink'
-  },
+  }
 ];
 
 import { Footer } from '@/components/Footer';
@@ -241,24 +186,7 @@ const Experience = () => {
             </div>
           </div>
 
-          {/* Summary Stats */}
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            {[
-              { label: 'Total Internships', value: '5+', color: 'purple' },
-              { label: 'Research Projects', value: '10+', color: 'blue' },
-              { label: 'Organizations', value: '5', color: 'pink' },
-              { label: 'Years Experience', value: '2+', color: 'purple' }
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className={`text-3xl md:text-4xl font-bold mb-2 ${stat.color === 'purple' ? 'text-purple' : stat.color === 'blue' ? 'text-blue' : 'text-pink'}`}>
-                  {stat.value}
-                </div>
-                <div className="text-foreground-muted text-sm">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
+
         </div>
       </div>
       <Footer />

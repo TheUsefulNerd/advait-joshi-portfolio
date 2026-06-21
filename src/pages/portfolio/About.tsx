@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -11,7 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import {
   Brain, Shield, Code2, Github, Linkedin, Mail,
   MapPin, Zap, GraduationCap, Calendar, Award,
-  BookOpen, Send
+  BookOpen, Send, Phone
 } from 'lucide-react';
 
 const RESUME_URL =
@@ -32,45 +33,33 @@ const highlights = [
       'Building backend systems, managing databases, and integrating security in offline RAG setups.',
     color: 'blue',
   },
-  {
-    icon: Code2,
-    title: 'Research',
-    description:
-      'Focus: Mechanistic Interpretability, Benchmarking, Knowledge Growth & Hallucinations.',
-    color: 'pink',
-  },
 ];
 
-const quickStats = [
-  { label: 'Internships', value: '5+' },
-  { label: 'Research Papers (Ongoing)', value: '3+' },
-  { label: 'Projects', value: '10+' },
-  { label: 'Technologies', value: '25+' },
-];
+
 
 const interests = [
-  'Machine Learning', 'Artificial Intelligence', 'Blockchain Technology',
-  'Data Science', 'Software Engineering', 'Natural Language Processing',
-  'Deep Learning', 'Backend Development', 'Research & Innovation',
+  'Agentic Systems', 'RAG Pipelines', 'Multi-Agent Orchestration',
+  'LLM Inference Optimization', 'Backend Engineering', 'Vector Databases',
+  'Distributed Systems', 'Developer Tooling',
 ];
 
 const goals = [
-  'Contribute to cutting-edge AI research',
-  'Build impactful ML solutions for real-world problems',
-  'Advance the field of Software Engineering',
-  'Mentor aspiring developers and researchers',
-  'Pursue graduate studies in AI/ML',
+  'Ship reliable, production-grade agentic AI systems',
+  'Specialize in LLM inference optimization and cost-efficient serving',
+  'Contribute to open-source AI infrastructure tooling',
+  'Land an AI Engineer / MLE role at a product-focused team',
+  'Build systems that hold up under real-world load, not just demos',
 ];
 
 const topSkills = [
   { name: 'Python', level: 95 },
+  { name: 'FastAPI', level: 90 },
+  { name: 'LangGraph/LangChain', level: 92 },
   { name: 'RAG Pipelines', level: 98 },
-  { name: 'PyTorch', level: 88 },
-  { name: 'Deep Learning', level: 95 },
-  { name: 'Langchain', level: 92 },
-  { name: 'React', level: 92 },
-  { name: 'SQL', level: 90 },
-  { name: 'Git/GitHub', level: 95 },
+  { name: 'PostgreSQL/Supabase', level: 88 },
+  { name: 'React.js/Next.js', level: 90 },
+  { name: 'Docker', level: 85 },
+  { name: 'Git', level: 95 },
 ];
 
 const education = {
@@ -78,7 +67,7 @@ const education = {
   institution: 'Swami Vivekananda Institute of Technology (SVIT)',
   location: 'Hyderabad, India',
   duration: '2023 – 2027',
-  gpa: '7.94/10.0',
+  gpa: '8.14/10.0',
   coursework: ['Data Structures & Algorithms', 'Database Management Systems', 'Introduction to Data Science', 'Software Engineering', 'Statistics & Probability'],
 };
 
@@ -94,9 +83,28 @@ const socialLinks = [
   { name: 'Email', icon: Mail, href: 'mailto:advaitszone@gmail.com' },
 ];
 
+const contactMethods = [
+  { title: 'Email', value: 'advaitszone@gmail.com', href: 'mailto:advaitszone@gmail.com', icon: Mail, color: 'purple' },
+  { title: 'Phone', value: '+91 9515445545', href: 'tel:+919515445545', icon: Phone, color: 'blue' },
+  { title: 'Location', value: 'Hyderabad, India', href: '#', icon: MapPin, color: 'pink' }
+];
+
 const PortfolioAbout = () => {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const { toast } = useToast();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location.hash]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -124,7 +132,7 @@ const PortfolioAbout = () => {
                 About <span className="gradient-text">Me</span>
               </h1>
               <p className="text-foreground-muted">
-                Passionate about AI, ML, and building things that matter.
+                AI Engineer specializing in agentic systems, RAG pipelines, and multi-agent orchestration.
               </p>
             </div>
             <a href={RESUME_URL} target="_blank" rel="noopener noreferrer">
@@ -135,7 +143,7 @@ const PortfolioAbout = () => {
           </div>
 
           {/* ── Highlights Grid ───────────────────────────────────────────── */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {highlights.map((h, i) => {
               const Icon = h.icon;
               return (
@@ -153,35 +161,20 @@ const PortfolioAbout = () => {
             })}
           </div>
 
-          {/* ── Stats Row ────────────────────────────────────────────────── */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            {quickStats.map((s, i) => (
-              <div key={i} className="text-center">
-                <div className="text-4xl font-bold gradient-text mb-1">{s.value}</div>
-                <div className="text-foreground-muted text-sm">{s.label}</div>
-              </div>
-            ))}
-          </div>
+
 
           {/* ── My Journey ───────────────────────────────────────────────── */}
           <Card className="p-8 bg-card border-border mb-12">
             <h2 className="text-2xl font-semibold mb-4 text-blue" id="journey">My Journey</h2>
             <div className="space-y-4 text-foreground-muted leading-relaxed">
               <p>
-                I'm a third-year Computer Science Engineering student specialising in Data Science at SVIT,
-                graduating in 2027. My journey into technology began with curiosity about how intelligent
-                systems like Alexa and Google Home work — and has evolved into a passion for creating innovative solutions.
+                I'm an AI Engineer and incoming 4th-year student at Swami Vivekananda Institute of Technology, Hyderabad, building production-grade agentic systems with a focus on RAG pipelines, multi-agent orchestration, and inference optimization.
               </p>
               <p>
-                Currently working as an ML Engineer Intern at TechPeek and an AI Engineer Intern at DRDO, I've had
-                the privilege of working on diverse projects ranging from RAG systems and offline LLMs to blockchain
-                applications. My research internships at IIT Kanpur and IIT Patna have further solidified my commitment
-                to advancing artificial intelligence.
+                Past work includes multi-route RAG systems for DRDO, a deterministic support triage agent for HackerRank Orchestrate, and full-stack AI platforms using LangGraph, FastAPI, and Supabase. I care about reliability and speed, not just making things work in demos.
               </p>
               <p>
-                Beyond technical skills, I believe in the power of collaboration and knowledge sharing. I'm always
-                eager to learn from others and contribute to the tech community through open-source projects and
-                research initiatives.
+                Currently looking for AI Engineer and MLE internships.
               </p>
             </div>
           </Card>
@@ -335,15 +328,24 @@ const PortfolioAbout = () => {
               </div>
 
               <div className="space-y-4">
-                {socialLinks.map((s, i) => {
-                  const Icon = s.icon;
+                {contactMethods.map((method, index) => {
+                  const Icon = method.icon;
                   return (
-                    <Card key={i} className="p-5 bg-card hover:bg-card-hover border-border hover:border-purple/30 transition-all duration-300">
-                      <a href={s.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
-                        <div className="p-2 rounded-full bg-purple/20 group-hover:bg-purple/30 transition-all">
-                          <Icon className="w-5 h-5 text-purple" />
+                    <Card key={index} className="p-5 bg-card hover:bg-card-hover border-border hover:border-purple/30 transition-all duration-300">
+                      <a href={method.href} className="flex items-center gap-3 group">
+                        <div className={`p-2 rounded-full transition-all ${
+                          method.color === 'purple' ? 'bg-purple/20 group-hover:bg-purple/30' :
+                          method.color === 'blue' ? 'bg-blue/20 group-hover:bg-blue/30' : 'bg-pink/20 group-hover:bg-pink/30'
+                        }`}>
+                          <Icon className={`w-5 h-5 ${
+                            method.color === 'purple' ? 'text-purple' :
+                            method.color === 'blue' ? 'text-blue' : 'text-pink'
+                          }`} />
                         </div>
-                        <span className="font-medium group-hover:text-purple transition-colors">{s.name}</span>
+                        <div>
+                          <p className="text-xs text-foreground-muted mb-0.5">{method.title}</p>
+                          <p className="text-sm font-medium group-hover:text-foreground transition-colors">{method.value}</p>
+                        </div>
                       </a>
                     </Card>
                   );
@@ -355,15 +357,14 @@ const PortfolioAbout = () => {
                     <span className="font-semibold text-green-400 text-sm">Currently Available</span>
                   </div>
                   <p className="text-foreground-muted text-xs leading-relaxed">
-                    Open to internships, research collaborations, and freelance projects.
+                    Open to AI Engineer and MLE internship opportunities.
                   </p>
                 </Card>
 
                 <div className="text-center">
-                  <p className="text-foreground-muted text-xs mb-3">View or download my full resume</p>
                   <a href={RESUME_URL} target="_blank" rel="noopener noreferrer">
-                    <Button variant="ghost" className="text-foreground-muted hover:text-foreground text-sm underline-offset-4 hover:underline">
-                      My Resume ↗
+                    <Button variant="ghost" className="text-foreground-muted hover:text-foreground text-sm font-medium underline-offset-4 hover:underline">
+                      My Resume
                     </Button>
                   </a>
                 </div>

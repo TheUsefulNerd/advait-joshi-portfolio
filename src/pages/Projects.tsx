@@ -8,85 +8,59 @@ import { Link } from 'react-router-dom'
 
 const projects = [
   {
-    title: 'FloatChat-AI',
-    description:
-      'Implemented a state-of-the-art object detection system using YOLO architecture for real-time video analysis.',
-    image: '/api/placeholder/400/250',
+    title: 'Architect - AI Orchestrated Socratic Mentor',
+    description: 'A full-stack AI orchestration platform that transforms project ideas into implementations via a three-phase Socratic Loop: Planner, Librarian, and Mentor — using LangGraph for multi-agent orchestration.',
+    image: '',
     category: 'RAG',
-    technologies: ['Python', 'groq', 'SQL', 'Postgres', 'ChromaDB'],
-    status: 'On-going',
+    technologies: ['Python', 'LangGraph', 'FastAPI', 'Qdrant', 'Next.js 15', 'Supabase', 'Groq', 'Gemini'],
+    status: 'Completed',
     highlights: [
-      'Our conversational platform lets anyone explore ARGO ocean data using natural language, eliminating the need for coding or domain expertise.',
-      'We automatically ingest ARGO NetCDF files, extract key ocean parameters, and organize them in a structured PostgreSQL database for fast, flexible access.',
-      'Advanced AI models interpret user questions and translate them into precise database queries, delivering accurate insights instantly.',
-      'Our system combines vector-based search and interactive dashboards, enabling rapid retrieval, intuitive mapping, and easy visualization of ocean profiles.',
-      'A core innovation is our use of the Model Context Protocol (MCP), which ensures a scalable, modular architecture that seamlessly integrates AI, vector search, and visualization for future growth.',
+      'Built a full-stack AI orchestration platform that transforms project ideas into implementations via a three-phase Socratic Loop (Planner → Librarian → Mentor), using LangGraph for multi-agent orchestration and Groq (LLaMA 3.3-70B) with Gemini fallback.',
+      'Engineered a RAG pipeline with Qdrant vector search and Gemini text-embedding-004 to retrieve and synthesize documentation, delivering Perplexity-style cited responses tailored to specific tech stacks.',
+      'Deployed a production system using Next.js 15 and FastAPI, utilizing Supabase (PostgreSQL + RLS) for secure auth and per-user data isolation with Google and GitHub OAuth integration.'
+    ],
+    demoUrl: 'https://architect-ochre.vercel.app',
+    githubUrl: 'https://github.com/TheUsefulNerd/Architect',
+    color: 'blue',
+  },
+  {
+    title: 'AI Support Triage Agent',
+    description: 'A multi-domain support triage agent processing tickets across HackerRank, Claude, and Visa — built for HackerRank Orchestrate 2026. Ranked 66 out of 1309 participants.',
+    image: '',
+    category: 'Agentic AI',
+    technologies: ['Python', 'LangChain', 'BM25', 'Pydantic', 'FastAPI'],
+    status: 'Completed',
+    highlights: [
+      'Built a multi-domain support triage agent processing tickets across HackerRank, Claude, and Visa using a 5-module pipeline - Safety → BM25 Retriever → LLM Classifier → Pydantic Validator → Responder.',
+      'Implemented a 12-signal deterministic risk scorer that pre-escalates high-risk tickets (fraud, outages, injections) before the LLM is called, reducing hallucination risk and API cost.',
+      'Achieved zero-hallucination output using Pydantic validation, query expansion synonyms, and a post-processing URL interceptor grounded strictly in the retrieved corpus.'
     ],
     demoUrl: '#',
     githubUrl: '#',
     color: 'pink',
   },
   {
-    title: 'Song Popularity Prediction',
-    description:
-      'A complete end-to-end data science project focused on understanding the patterns behind a song’s popularity using real-world audio and platform-level data — and building a predictive model to estimate Spotify stream counts.',
-    image: '/Song-Analysis-Project.png',
-    category: 'Data Science',
-    technologies: ['Python', 'Matplotlib', 'Scikit-learn', 'Pandas', 'Streamlit'],
-    status: 'Completed',
-    highlights: [
-      'Random Forest after log transformation gave the best results (R² ≈ 0.79)',
-      'Fully modular multi-page dashboard',
-      'Included Business Implications for each graphical and data understanding.',
-    ],
-    demoUrl: 'https://song-analysis-data-science-project.streamlit.app/',
-    githubUrl: 'https://github.com/TheUsefulNerd/Song-Analysis.git',
-    color: 'purple',
-  },
-  {
-    title: 'Crypto Mining Simulator',
-    description:
-      'A fully functional blockchain simulation implemented in Python with Flask. This project simulates core blockchain mechanics such as mining, transaction validation, mempool prioritization, mining rewards, balance tracking, and a dynamic web interface for visualization.',
-    image: '/Cryptomining-Simulator.png',
-    category: 'Blockchain',
-    technologies: ['Python', 'HTML', 'Flask'],
-    status: 'Completed',
-    highlights: [
-      '⛏️ Proof-of-Work Mining with adjustable difficulty',
-      '🧾 Transaction Generation with realistic fees and balances',
-      '🧺 Mempool to manage pending transactions',
-      '💰 Mining Rewards + Fee Accumulation',
-      '🧾 Wallet Balance Sheet auto-updates per block',
-      '🌐 Web Interface built using Flask',
-      '📦 Modular Design using transaction.py, block.py, chain.py, and app.py'
-    ],
-    demoUrl: 'https://simulation-cryptomining.onrender.com/',
-    githubUrl: 'https://github.com/TheUsefulNerd/Simulation-Cryptomining.git',
-    color: 'blue',
-  },
-  {
-    title: 'SIH-2025-INTERNAL-HACKATHON',
-    description:
-      'Created a website to showcase all the information regarding Smart India Hackathon 2025 - Internal Round details.',
-    image: '/SIH-2025-IH.png',
-    category: 'Web Dev',
-    technologies: ['Python', 'Transformers', 'BERT', 'FastAPI', 'Docker'],
+    title: 'ShopKeeper AI - Agentic Retail System',
+    description: 'A 9-agent retail automation system orchestrated via LangGraph where agents coordinate exclusively through structured state — no natural language between agents.',
+    image: '',
+    category: 'Agentic AI',
+    technologies: ['Python', 'LangGraph', 'FastAPI', 'Supabase', 'Redis', 'PostgreSQL', 'Next.js 15'],
     status: 'In Progress',
     highlights: [
-      'Clean UI',
+      'Building a 9-agent retail automation system orchestrated via LangGraph where agents coordinate exclusively through structured state - no natural language between agents - with a strict separation between LLM agents (Sales, Recommendation, Supplier, Post-Purchase) and deterministic agents (Inventory, Payment, Fulfillment, Loyalty).',
+      'Engineered a custom auth system from scratch using bcrypt + python-jose + Google OAuth 2.0 with JWT role payloads, Redis-backed refresh token blocklist, and a 19-table Supabase Postgres schema with UUID primary keys, Alembic migrations, and circular FK resolution via use_alter.',
+      'Designed a three-layer observability stack - WebSocket event stream for real-time agent activity, LangSmith for LangGraph trace archival, and OpenTelemetry for distributed request tracing across FastAPI, Redis, and Supabase - surfaced live inside a businessman dashboard with per-agent trace viewer.'
     ],
-    demoUrl: 'https://sih-2025-internal-hackathon.vercel.app/',
-    githubUrl: 'https://github.com/TheUsefulNerd/SIH-2025-INTERNAL-HACKATHON.git',
+    demoUrl: '#',
+    githubUrl: 'https://github.com/TheUsefulNerd/ShopKeeper-AI',
     color: 'purple',
-  },
+  }
 ];
 
 const categories = [
   'All',
+  'Agentic AI',
   'RAG',
-  'Blockchain',
-  'Web Dev',
-  'Data Science',
 ];
 
 const Projects = () => {

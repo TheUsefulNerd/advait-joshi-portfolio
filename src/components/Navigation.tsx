@@ -13,8 +13,8 @@ const portfolioItems = [
   { name: 'About Me',   path: '/portfolio/about',      icon: User },
   { name: 'Experience', path: '/portfolio/experience',  icon: Briefcase },
   { name: 'Projects',   path: '/portfolio/projects',    icon: FolderOpen },
-  { name: 'Education',  path: '/portfolio/education',   icon: GraduationCap },
-  { name: 'Contact',    path: '/portfolio/contact',     icon: Mail },
+  { name: 'Education',  path: '/portfolio/about#education',   icon: GraduationCap },
+  { name: 'Contact',    path: '/portfolio/about#contact',     icon: Mail },
 ];
 
 // ── Blog sub-nav items ─────────────────────────────────────────────────────────
@@ -80,23 +80,23 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center h-16 gap-3">
 
-            {/* ── HOME STATE: Logo + name on left, Portfolio / Blogs on right ── */}
+            {/* ── PERMANENT LOGO ── */}
+            <Link to="/" className="flex items-center gap-2 mr-auto md:mr-6 flex-shrink-0">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple to-pink overflow-hidden flex-shrink-0">
+                <img
+                  src="/Linkedin PFP.jpg"
+                  alt="Advait Joshi"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="font-semibold text-base hidden sm:block">Advait Joshi</span>
+            </Link>
+
+            {/* ── HOME STATE ─────────────────────────────────────────────── */}
             {isHome && (
               <>
-                {/* Logo */}
-                <Link to="/" className="flex items-center gap-2 mr-auto">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple to-pink overflow-hidden flex-shrink-0">
-                    <img
-                      src="/Linkedin PFP.jpg"
-                      alt="Advait Joshi"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <span className="font-semibold text-base hidden sm:block">Advait Joshi</span>
-                </Link>
-
                 {/* Desktop: mode buttons + theme */}
-                <div className="hidden md:flex items-center gap-2">
+                <div className="hidden md:flex items-center gap-2 ml-auto">
                   <Link to="/portfolio/about">
                     <button className={modeButtonClass(false)}>Portfolio</button>
                   </Link>
@@ -113,11 +113,11 @@ export function Navigation() {
               </>
             )}
 
-            {/* ── PORTFOLIO STATE: PORTFOLIO label + sub-nav on left, BLOGS on right ── */}
+            {/* ── PORTFOLIO STATE ────────────────────────────────────────── */}
             {isPortfolio && (
               <>
                 {/* Portfolio mode indicator + sub-nav */}
-                <div className="hidden md:flex items-center gap-1 mr-auto">
+                <div className="hidden md:flex items-center gap-1 mr-auto overflow-x-auto">
                   <Link to="/portfolio/about">
                     <button className={modeButtonClass(true)}>Portfolio</button>
                   </Link>
@@ -127,14 +127,14 @@ export function Navigation() {
                     return (
                       <Link key={item.path} to={item.path} className={navLinkClass(isActive(item.path))}>
                         <Icon className="w-3.5 h-3.5" />
-                        <span>{item.name}</span>
+                        <span className="whitespace-nowrap">{item.name}</span>
                       </Link>
                     );
                   })}
                 </div>
 
                 {/* Right: Blogs switch + theme */}
-                <div className="hidden md:flex items-center gap-2 ml-2">
+                <div className="hidden md:flex items-center gap-2 ml-2 flex-shrink-0">
                   <Link to="/blog">
                     <button className={modeButtonClass(false)}>Blogs</button>
                   </Link>
@@ -142,23 +142,17 @@ export function Navigation() {
                 </div>
 
                 {/* Mobile hamburger */}
-                <Link to="/" className="flex items-center gap-2 md:hidden mr-auto">
-                  <div className="w-7 h-7 rounded-full overflow-hidden">
-                    <img src="/Linkedin PFP.jpg" alt="Advait" className="w-full h-full object-cover" />
-                  </div>
-                  <span className="font-semibold text-sm">Portfolio</span>
-                </Link>
-                <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+                <Button variant="ghost" size="sm" className="md:hidden ml-auto" onClick={() => setIsOpen(!isOpen)}>
                   {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </Button>
               </>
             )}
 
-            {/* ── BLOG STATE: BLOGS label + sub-nav on left, PORTFOLIO on right ── */}
+            {/* ── BLOG STATE ─────────────────────────────────────────────── */}
             {isBlog && (
               <>
                 {/* Blog mode indicator + sub-nav */}
-                <div className="hidden md:flex items-center gap-1 mr-auto">
+                <div className="hidden md:flex items-center gap-1 mr-auto overflow-x-auto">
                   <Link to="/blog">
                     <button className={modeButtonClass(true)}>Blogs</button>
                   </Link>
@@ -168,14 +162,14 @@ export function Navigation() {
                     return (
                       <Link key={item.path} to={item.path} className={navLinkClass(isActive(item.path))}>
                         <Icon className="w-3.5 h-3.5" />
-                        <span>{item.name}</span>
+                        <span className="whitespace-nowrap">{item.name}</span>
                       </Link>
                     );
                   })}
                 </div>
 
                 {/* Right: Portfolio switch + theme */}
-                <div className="hidden md:flex items-center gap-2 ml-2">
+                <div className="hidden md:flex items-center gap-2 ml-2 flex-shrink-0">
                   <Link to="/portfolio/about">
                     <button className={modeButtonClass(false)}>Portfolio</button>
                   </Link>
@@ -183,13 +177,7 @@ export function Navigation() {
                 </div>
 
                 {/* Mobile hamburger */}
-                <Link to="/" className="flex items-center gap-2 md:hidden mr-auto">
-                  <div className="w-7 h-7 rounded-full overflow-hidden">
-                    <img src="/Linkedin PFP.jpg" alt="Advait" className="w-full h-full object-cover" />
-                  </div>
-                  <span className="font-semibold text-sm">Blogs</span>
-                </Link>
-                <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+                <Button variant="ghost" size="sm" className="md:hidden ml-auto" onClick={() => setIsOpen(!isOpen)}>
                   {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </Button>
               </>
