@@ -9,14 +9,17 @@ export interface Post {
 }
 
 // Custom lightweight frontmatter parser for the browser
-function parseFrontmatter(markdown: string) {
-  const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
-  const match = markdown.match(frontmatterRegex);
+function parseFrontmatter(markdown: any) {
+  // Defensive check to ensure we always have a string, even if Vite loaders act weirdly
+  const rawText = typeof markdown === 'string' ? markdown : String(markdown?.default || markdown || '');
   
-  if (!match) return { data: {} as any, content: markdown };
+  const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
+  const match = rawText.match(frontmatterRegex);
+  
+  if (!match) return { data: {} as any, content: rawText };
 
   const frontmatterString = match[1];
-  const content = markdown.slice(match[0].length).trim();
+  const content = rawText.slice(match[0].length).trim();
   const data: Record<string, any> = {};
   
   frontmatterString.split('\n').forEach(line => {
