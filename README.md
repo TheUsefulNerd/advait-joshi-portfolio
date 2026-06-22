@@ -4,7 +4,7 @@ A modern, dual-audience personal website featuring a professional portfolio and 
 
 ## 🌐 Live Site
 
-**URL**: https://advait-joshi-portfolio.vercel.app/
+**URL**: https://advaitjoshi.vercel.app/
 
 ---
 
