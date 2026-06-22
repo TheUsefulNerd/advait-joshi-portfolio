@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, Play, Filter } from 'lucide-react';
 import { Footer } from '@/components/Footer';
+import { SEO } from '@/components/SEO';
 import { Link } from 'react-router-dom'
 
 const projects = [
@@ -90,6 +91,8 @@ const Projects = () => {
     src && !src.includes('/api/placeholder');
 
   return (
+    <>
+    <SEO title="Projects | Advait Joshi" description="Portfolio projects showcasing machine learning, agentic orchestration, and RAG systems." />
     <div className="min-h-screen pt-24 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="curtain-reveal">
@@ -310,6 +313,7 @@ const Projects = () => {
       </div>
       <Footer />
     </div>
+    </>
   );
 };
 

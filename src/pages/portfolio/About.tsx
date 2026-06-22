@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Progress } from '@/components/ui/progress';
 import { Footer } from '@/components/Footer';
+import { SEO } from '@/components/SEO';
 import { useToast } from '@/hooks/use-toast';
 import {
   Brain, Network, Shield, Code2, Github, Linkedin, Mail,
@@ -121,6 +122,8 @@ const PortfolioAbout = () => {
   };
 
   return (
+    <>
+    <SEO title="About | Advait Joshi" description="AI Engineer specializing in agentic systems, RAG pipelines, and multi-agent orchestration." />
     <div className="min-h-screen pt-24 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="curtain-reveal">
@@ -392,6 +395,7 @@ const PortfolioAbout = () => {
       </div>
       <Footer />
     </div>
+    </>
   );
 };
 

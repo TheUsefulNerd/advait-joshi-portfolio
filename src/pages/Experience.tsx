@@ -50,6 +50,7 @@ const experiences = [
 ];
 
 import { Footer } from '@/components/Footer';
+import { SEO } from '@/components/SEO';
 
 const Experience = () => {
   const getColorClasses = (color: string) => {
@@ -70,6 +71,8 @@ const Experience = () => {
   };
 
   return (
+    <>
+    <SEO title="Experience | Advait Joshi" description="Professional experience, internships and research opportunities." />
     <div className="min-h-screen pt-24 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="curtain-reveal">
@@ -191,6 +194,7 @@ const Experience = () => {
       </div>
       <Footer />
     </div>
+    </>
   );
 };
 
