@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
-import { ArrowLeft, Twitter, Linkedin, Link as LinkIcon, Share2 } from 'lucide-react';
+import { ArrowLeft, Link as LinkIcon } from 'lucide-react';
 import { allPosts } from '@/lib/posts';
 import { useToast } from '@/hooks/use-toast';
 import { FloatingWidget } from '@/components/blog/FloatingWidget';
@@ -25,21 +25,13 @@ const BlogPost = () => {
   const [activeSection, setActiveSection] = useState<string>('');
   const { toast } = useToast();
 
-  const handleShare = (platform: string) => {
+  const handleShare = () => {
     const url = window.location.href;
-    const title = post?.title || 'Advait Joshi | Blog';
-    
-    if (platform === 'twitter') {
-      window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`, '_blank');
-    } else if (platform === 'linkedin') {
-      window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`, '_blank');
-    } else if (platform === 'copy') {
-      navigator.clipboard.writeText(url);
-      toast({
-        title: "Link copied!",
-        description: "Blog post link copied to clipboard.",
-      });
-    }
+    navigator.clipboard.writeText(url);
+    toast({
+      title: "Link copied!",
+      description: "Blog post link copied to clipboard.",
+    });
   };
 
   const toc = useMemo(() => {
@@ -135,31 +127,14 @@ const BlogPost = () => {
                 {post.description}
               </p>
 
-              {/* Share Buttons */}
-              <div className="flex items-center justify-center md:justify-start gap-3 mt-6">
-                <span className="text-sm font-medium text-foreground-muted flex items-center gap-1.5">
-                  <Share2 className="w-4 h-4" /> Share:
-                </span>
+              {/* Share Button */}
+              <div className="flex items-center justify-center md:justify-start mt-6">
                 <button
-                  onClick={() => handleShare('twitter')}
-                  className="p-2 rounded-full hover:bg-secondary/80 text-foreground-muted hover:text-[#1DA1F2] transition-colors"
-                  aria-label="Share on Twitter"
-                >
-                  <Twitter className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => handleShare('linkedin')}
-                  className="p-2 rounded-full hover:bg-secondary/80 text-foreground-muted hover:text-[#0A66C2] transition-colors"
-                  aria-label="Share on LinkedIn"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => handleShare('copy')}
-                  className="p-2 rounded-full hover:bg-secondary/80 text-foreground-muted hover:text-foreground transition-colors"
+                  onClick={handleShare}
+                  className="flex items-center gap-2 px-4 py-2 rounded-md bg-secondary/50 hover:bg-secondary text-foreground-muted hover:text-foreground text-sm font-medium transition-colors"
                   aria-label="Copy Link"
                 >
-                  <LinkIcon className="w-4 h-4" />
+                  <LinkIcon className="w-4 h-4" /> Copy Link
                 </button>
               </div>
             </header>
