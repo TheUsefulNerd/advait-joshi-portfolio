@@ -140,22 +140,17 @@ const BlogPost = () => {
               </div>
             </header>
 
-            {/* Featured Image or Gradient Banner */}
-            {post.image ? (
-              <div className="w-full h-48 sm:h-64 md:h-80 rounded-2xl mb-12 relative overflow-hidden shadow-sm border border-border/50">
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
-              </div>
-            ) : (
-              <div className="w-full h-48 sm:h-64 md:h-80 bg-gradient-to-br from-[#E2F5E2] to-[#FF8C69] rounded-2xl mb-12 relative overflow-hidden shadow-sm border border-border/50">
-                 <div className="absolute inset-0 flex items-center justify-center opacity-30 mix-blend-overlay">
-                    <div className="flex items-center gap-1 h-24">
-                      {[1,3,6,2,8,4,9,3,7,2,5,1].map((h, i) => (
-                         <div key={i} className="w-2 bg-white rounded-full transition-all" style={{ height: `${h * 10}%` }} />
-                      ))}
-                    </div>
-                 </div>
-              </div>
-            )}
+            {/* Featured Gradient Banner */}
+            <div className="w-full h-48 sm:h-64 md:h-80 bg-gradient-to-br from-[#E2F5E2] to-[#FF8C69] rounded-2xl mb-12 relative overflow-hidden shadow-sm border border-border/50">
+               <div className="absolute inset-0 flex items-center justify-center opacity-30 mix-blend-overlay">
+                  {/* Simulated soundwave visual using basic shapes */}
+                  <div className="flex items-center gap-1 h-24">
+                    {[1,3,6,2,8,4,9,3,7,2,5,1].map((h, i) => (
+                       <div key={i} className="w-2 bg-white rounded-full transition-all" style={{ height: `${h * 10}%` }} />
+                    ))}
+                  </div>
+               </div>
+            </div>
 
             {/* Prose Content */}
             <div className="blog-prose prose prose-lg dark:prose-invert max-w-none">

@@ -19,7 +19,13 @@ export function BlogCard({ post }: BlogCardProps) {
       to={`/blog/${post.slug}`} 
       className="block no-underline group bg-card rounded-xl border border-border/50 hover:shadow-md transition-all overflow-hidden flex flex-col h-full"
     >
-      <div className="h-32 w-full bg-gradient-to-br from-[#E2F5E2] to-[#FF8C69] border-b border-border/50 relative flex-shrink-0"></div>
+      {post.image ? (
+        <div className="h-32 w-full border-b border-border/50 relative flex-shrink-0 overflow-hidden">
+          <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        </div>
+      ) : (
+        <div className="h-32 w-full bg-gradient-to-br from-[#E2F5E2] to-[#FF8C69] border-b border-border/50 relative flex-shrink-0"></div>
+      )}
       <div className="p-4 flex-1 flex flex-col">
         <div className="text-xs font-medium text-foreground-muted mb-1.5">
           {formatDate(post.date)}
