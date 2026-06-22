@@ -32,11 +32,8 @@ export function Hero() {
             </h1>
             
             <div className="text-lg md:text-xl text-foreground-muted leading-relaxed">
-              <div className="font-semibold text-foreground mb-2">
-                ML Engineer Intern @TechPeek
-              </div>
               <div>
-                ML Engineer Intern @TechPeek | AI Engineer Intern @DRDO | Research Intern @IIT Kanpur, IIT Patna | Blockchain Developer Intern @Inspiring Wave | SVIT CSE(DS) ’2027
+                ML Engineer Intern @TechPeek | AI Engineer Intern @DRDO | Research Intern @IIT Kanpur | SVIT CSE(Data Science) ’2027
               </div>
             </div>
           </div>

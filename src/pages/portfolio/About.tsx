@@ -163,13 +163,13 @@ const PortfolioAbout = () => {
             })}
             
             {/* Availability Highlights Card */}
-            <Card className="p-6 text-center bg-gradient-to-br from-green-500/10 to-green-600/5 border-green-500/30 hover:scale-105 group transition-all duration-300 flex flex-col justify-between">
+            <Card className="p-6 text-center bg-card hover:bg-card-hover border-border hover:border-green-500/30 hover:scale-105 group transition-all duration-300 flex flex-col justify-between">
               <div>
-                <div className="w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center bg-green-500/20 group-hover:bg-green-500/30 transition-all duration-300 relative">
-                  <Zap className="w-7 h-7 text-green-400 animate-pulse relative z-10" />
-                  <span className="absolute inset-0 rounded-full bg-green-400/20 animate-ping" />
+                <div className="w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center bg-green-100 dark:bg-green-950/40 group-hover:bg-green-200 group-hover:dark:bg-green-900/40 transition-all duration-300 relative">
+                  <Zap className="w-7 h-7 text-green-600 dark:text-green-400 animate-pulse relative z-10" />
+                  <span className="absolute inset-0 rounded-full bg-green-600/20 dark:bg-green-400/20 animate-ping" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2 text-green-400">Currently Available</h3>
+                <h3 className="text-lg font-semibold mb-2 text-green-700 dark:text-green-400">Currently Available</h3>
                 <p className="text-foreground-muted text-sm leading-relaxed">
                   Open to AI Engineer and MLE internship opportunities.
                 </p>
@@ -367,10 +367,10 @@ const PortfolioAbout = () => {
                   );
                 })}
 
-                <Card className="p-5 bg-gradient-to-br from-green-500/10 to-green-600/5 border-green-500/30">
+                <Card className="p-5 bg-card border-border hover:border-green-500/20 transition-all duration-300">
                   <div className="flex items-center gap-2 mb-2">
-                    <Zap className="w-4 h-4 text-green-400" />
-                    <span className="font-semibold text-green-400 text-sm">Currently Available</span>
+                    <Zap className="w-4 h-4 text-green-600 dark:text-green-400" />
+                    <span className="font-semibold text-green-700 dark:text-green-400 text-sm">Currently Available</span>
                   </div>
                   <p className="text-foreground-muted text-xs leading-relaxed">
                     Open to AI Engineer and MLE internship opportunities.

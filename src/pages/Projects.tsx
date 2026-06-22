@@ -83,8 +83,8 @@ const Projects = () => {
 
   const getStatusColor = (status: string) =>
     status === 'Completed'
-      ? 'bg-green-500/20 text-green-400 border-green-500/30'
-      : 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
+      ? 'bg-green-600/10 text-green-700 border-green-600/20 dark:bg-green-500/20 dark:text-green-400 dark:border-green-500/30'
+      : 'bg-yellow-600/10 text-yellow-700 border-yellow-600/20 dark:bg-yellow-500/20 dark:text-yellow-400 dark:border-yellow-500/30';
 
   const isValidImage = (src: string) =>
     src && !src.includes('/api/placeholder');

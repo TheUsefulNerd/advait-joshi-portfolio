@@ -10,49 +10,49 @@
 */
 
 @layer base {
-  /* ── LIGHT MODE (OpenAI Inspired - Professional & Minimalist) ── */
+  /* ── LIGHT MODE (Stormy Morning - Cohesive Blue Shades & Crisp Contrast) ── */
   :root {
     /* Backgrounds */
     --background: 0 0% 100%;
-    --background-secondary: 0 0% 97.5%;
-    --background-tertiary: 0 0% 95%;
+    --background-secondary: 210 20% 98%;
+    --background-tertiary: 210 20% 95%;
 
     /* Text */
-    --foreground: 0 0% 12%;
-    --foreground-muted: 0 0% 45%;
+    --foreground: 209 23% 18%;
+    --foreground-muted: 210 12% 43%;
 
     /* Cards */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 12%;
-    --card-hover: 0 0% 97.5%;
+    --card-foreground: 209 23% 18%;
+    --card-hover: 210 20% 98%;
 
-    /* Purple -> Muted Slate/Charcoal */
-    --purple: 220 15% 45%;
-    --purple-light: 220 15% 60%;
-    --purple-dark: 220 20% 30%;
+    /* Purple -> Steel Blue (#6A89A7) - Darkened for high contrast text readability */
+    --purple: 210 22% 38%;
+    --purple-light: 210 89% 86%;
+    --purple-dark: 209 23% 20%;
     --purple-foreground: 0 0% 100%;
 
-    /* Blue -> Soft Sage/Teal */
-    --blue: 160 15% 45%;
-    --blue-light: 160 15% 60%;
-    --blue-dark: 160 20% 30%;
+    /* Blue -> Soft Sky Blue (#88BDF2) - Darkened to a rich navy blue for text readability */
+    --blue: 215 55% 32%;
+    --blue-light: 210 80% 74%;
+    --blue-dark: 209 23% 20%;
     --blue-foreground: 0 0% 100%;
 
-    /* Pink -> Warm Muted Sand/Gray */
-    --pink: 30 15% 55%;
-    --pink-light: 30 15% 70%;
-    --pink-dark: 30 20% 40%;
+    /* Pink -> Dark Charcoal Blue (#384959) */
+    --pink: 209 23% 24%;
+    --pink-light: 210 89% 86%;
+    --pink-dark: 209 23% 15%;
     --pink-foreground: 0 0% 100%;
 
-    /* Gradients - Ultra subtle, almost flat */
-    --gradient-primary: linear-gradient(135deg, hsl(220 15% 45%) 0%, hsl(160 15% 45%) 100%);
-    --gradient-purple-blue: linear-gradient(135deg, hsl(220 15% 45%) 0%, hsl(160 15% 45%) 100%);
-    --gradient-blue-pink: linear-gradient(135deg, hsl(160 15% 45%) 0%, hsl(30 15% 55%) 100%);
+    /* Gradients - Soft, cohesive stormy shades */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--purple)) 0%, hsl(var(--blue)) 100%);
+    --gradient-purple-blue: linear-gradient(135deg, hsl(var(--purple)) 0%, hsl(var(--blue)) 100%);
+    --gradient-blue-pink: linear-gradient(135deg, hsl(var(--blue)) 0%, hsl(var(--pink)) 100%);
 
-    /* Glow effects - Barely visible structural shadow */
-    --glow-purple: 0 4px 14px hsl(0 0% 0% / 0.03);
-    --glow-blue: 0 4px 14px hsl(0 0% 0% / 0.03);
-    --glow-pink: 0 4px 14px hsl(0 0% 0% / 0.03);
+    /* Glow effects - Subtle shadow matching the steel blues */
+    --glow-purple: 0 4px 20px hsl(210 27% 54% / 0.05);
+    --glow-blue: 0 4px 20px hsl(210 80% 74% / 0.05);
+    --glow-pink: 0 4px 20px hsl(209 23% 28% / 0.05);
 
     /* Semantic tokens */
     --primary: var(--purple);
@@ -65,8 +65,8 @@
     --muted-foreground: var(--foreground-muted);
 
     /* Borders & inputs */
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 210 15% 91%;
+    --input: 210 15% 91%;
     --ring: var(--purple);
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
