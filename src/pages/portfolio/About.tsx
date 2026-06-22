@@ -10,7 +10,7 @@ import { Progress } from '@/components/ui/progress';
 import { Footer } from '@/components/Footer';
 import { useToast } from '@/hooks/use-toast';
 import {
-  Brain, Shield, Code2, Github, Linkedin, Mail,
+  Brain, Network, Shield, Code2, Github, Linkedin, Mail,
   MapPin, Zap, GraduationCap, Calendar, Award,
   BookOpen, Send, Phone
 } from 'lucide-react';
@@ -21,16 +21,16 @@ const RESUME_URL =
 const highlights = [
   {
     icon: Brain,
-    title: 'AI & ML Engineering',
+    title: 'AI Engineering',
     description:
-      'Exploring the frontiers of LLMs through RAG, interpretability research, and hands-on chatbot development.',
+      'Building production-grade RAG pipelines, deploying quantized local models, and optimizing document intelligence pipelines.',
     color: 'purple',
   },
   {
-    icon: Shield,
-    title: 'Software Engineering',
+    icon: Network,
+    title: 'Agentic AI & Orchestration',
     description:
-      'Building backend systems, managing databases, and integrating security in offline RAG setups.',
+      'Orchestrating multi-agent state machines, structured communication loops with LangGraph, and automated support triage pipelines.',
     color: 'blue',
   },
 ];
@@ -143,22 +143,38 @@ const PortfolioAbout = () => {
           </div>
 
           {/* ── Highlights Grid ───────────────────────────────────────────── */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {highlights.map((h, i) => {
               const Icon = h.icon;
               return (
-                <Card key={i} className="p-6 text-center bg-card hover:bg-card-hover border-border hover:border-purple/30 hover:scale-105 group transition-all duration-300">
-                  <div className={`w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center ${
-                    h.color === 'purple' ? 'bg-purple/20 group-hover:bg-purple/30' :
-                    h.color === 'blue' ? 'bg-blue/20 group-hover:bg-blue/30' : 'bg-pink/20 group-hover:bg-pink/30'
-                  } transition-all duration-300`}>
-                    <Icon className={`w-7 h-7 ${h.color === 'purple' ? 'text-purple' : h.color === 'blue' ? 'text-blue' : 'text-pink'}`} />
+                <Card key={i} className="p-6 text-center bg-card hover:bg-card-hover border-border hover:border-purple/30 hover:scale-105 group transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className={`w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center ${
+                      h.color === 'purple' ? 'bg-purple/20 group-hover:bg-purple/30' :
+                      h.color === 'blue' ? 'bg-blue/20 group-hover:bg-blue/30' : 'bg-pink/20 group-hover:bg-pink/30'
+                    } transition-all duration-300`}>
+                      <Icon className={`w-7 h-7 ${h.color === 'purple' ? 'text-purple' : h.color === 'blue' ? 'text-blue' : 'text-pink'}`} />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">{h.title}</h3>
+                    <p className="text-foreground-muted text-sm leading-relaxed">{h.description}</p>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{h.title}</h3>
-                  <p className="text-foreground-muted text-sm leading-relaxed">{h.description}</p>
                 </Card>
               );
             })}
+            
+            {/* Availability Highlights Card */}
+            <Card className="p-6 text-center bg-gradient-to-br from-green-500/10 to-green-600/5 border-green-500/30 hover:scale-105 group transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <div className="w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center bg-green-500/20 group-hover:bg-green-500/30 transition-all duration-300 relative">
+                  <Zap className="w-7 h-7 text-green-400 animate-pulse relative z-10" />
+                  <span className="absolute inset-0 rounded-full bg-green-400/20 animate-ping" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-green-400">Currently Available</h3>
+                <p className="text-foreground-muted text-sm leading-relaxed">
+                  Open to AI Engineer and MLE internship opportunities.
+                </p>
+              </div>
+            </Card>
           </div>
 
 

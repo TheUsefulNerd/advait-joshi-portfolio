@@ -100,7 +100,7 @@ const Projects = () => {
                 Featured <span className="gradient-text">Projects</span>
               </h1>
               <p className="text-xl text-foreground-muted max-w-3xl leading-relaxed">
-                A showcase of my work spanning machine learning, blockchain, and web development projects.
+                A showcase of my work spanning machine learning, agentic orchestration, and RAG systems.
               </p>
             </div>
             <a
