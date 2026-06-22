@@ -22,7 +22,7 @@ const BlogArchive = () => {
   let filteredPosts = allPosts;
   if (activeCategory) {
     filteredPosts = filteredPosts.filter((post) => 
-      post.tags[0]?.toLowerCase() === activeCategory.toLowerCase()
+      post.tags.some(tag => tag.toLowerCase() === activeCategory.toLowerCase())
     );
   }
   if (searchQuery) {
