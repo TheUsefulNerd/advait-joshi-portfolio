@@ -10,7 +10,7 @@ interface SEOProps {
 
 export function SEO({
   title = 'Advait Joshi | Portfolio & Blog',
-  description = 'Portfolio and blog of Advait Joshi, showcasing work in AI, Machine Learning, Blockchain, and Software Engineering.',
+  description = 'Portfolio and blog of Advait Joshi, showcasing work in AI, Machine Learning, and Agentic Systems.',
   type = 'website',
   image = '/og-image.png',
   url = 'https://advaitjoshi.com', // Replace with real URL later

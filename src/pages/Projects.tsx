@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, Play, Filter } from 'lucide-react';
 import { Footer } from '@/components/Footer';
+import { SEO } from '@/components/SEO';
 import { Link } from 'react-router-dom'
 
 const projects = [
@@ -83,13 +84,15 @@ const Projects = () => {
 
   const getStatusColor = (status: string) =>
     status === 'Completed'
-      ? 'bg-green-500/20 text-green-400 border-green-500/30'
-      : 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
+      ? 'bg-green-600/10 text-green-700 border-green-600/20 dark:bg-green-500/20 dark:text-green-400 dark:border-green-500/30'
+      : 'bg-yellow-600/10 text-yellow-700 border-yellow-600/20 dark:bg-yellow-500/20 dark:text-yellow-400 dark:border-yellow-500/30';
 
   const isValidImage = (src: string) =>
     src && !src.includes('/api/placeholder');
 
   return (
+    <>
+    <SEO title="Projects | Advait Joshi" description="Portfolio projects showcasing machine learning, agentic orchestration, and RAG systems." />
     <div className="min-h-screen pt-24 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="curtain-reveal">
@@ -100,7 +103,7 @@ const Projects = () => {
                 Featured <span className="gradient-text">Projects</span>
               </h1>
               <p className="text-xl text-foreground-muted max-w-3xl leading-relaxed">
-                A showcase of my work spanning machine learning, blockchain, and web development projects.
+                A showcase of my work spanning machine learning, agentic orchestration, and RAG systems.
               </p>
             </div>
             <a
@@ -310,6 +313,7 @@ const Projects = () => {
       </div>
       <Footer />
     </div>
+    </>
   );
 };
 

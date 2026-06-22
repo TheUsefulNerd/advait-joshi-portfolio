@@ -15,7 +15,7 @@
   --blog-text:          #1A1A1A;
   --blog-text-muted:    #6B6B6B;
   --blog-accent:        hsl(258, 80%, 45%);   /* brand purple — flat, no gradient */
-  --blog-border:        #E2E2DE;
+  --blog-border:        #CDCDCC;              /* Darkened border for clear outline */
   --blog-card-bg:       #FFFFFF;
   --blog-tag-bg:        #EDEDE9;
   --blog-tag-text:      #4A4A4A;
@@ -23,7 +23,6 @@
 
   background-color: var(--blog-bg);
   color: var(--blog-text);
-  font-family: 'Inter', 'Georgia', serif;
   line-height: var(--blog-line-height);
   min-height: 100vh;
   padding-top: 4rem; /* nav height */
@@ -76,7 +75,7 @@
   max-width: 70ch;
 }
 
-.blog-page a {
+.blog-page a:not(.no-underline) {
   color: var(--blog-accent);
   text-decoration: underline;
   text-decoration-color: transparent;
@@ -84,7 +83,7 @@
   transition: text-decoration-color 0.2s ease;
 }
 
-.blog-page a:hover {
+.blog-page a:not(.no-underline):hover {
   text-decoration-color: var(--blog-accent);
 }
 
@@ -92,13 +91,15 @@
 .blog-card {
   background-color: var(--blog-card-bg);
   border: 1px solid var(--blog-border);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 1.5rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
 }
 
 .blog-card:hover {
   border-color: var(--blog-accent);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
   transform: translateY(-2px);
 }
 

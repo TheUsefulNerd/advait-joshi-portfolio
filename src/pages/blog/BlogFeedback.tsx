@@ -8,6 +8,8 @@ const BlogFeedback = () => {
   const [postRef, setPostRef] = useState('');
   const [comment, setComment] = useState('');
   const [email, setEmail] = useState('');
+  const [clarityRating, setClarityRating] = useState<number | null>(null);
+  const [styleRating, setStyleRating] = useState<number | null>(null);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -18,8 +20,8 @@ const BlogFeedback = () => {
 
     const payload: ContentFeedbackInsert = {
       post_slug: postRef.trim() || '',
-      clarity_rating: null,
-      style_rating: null,
+      clarity_rating: clarityRating,
+      style_rating: styleRating,
       comment: comment.trim(),
     };
 
@@ -34,6 +36,8 @@ const BlogFeedback = () => {
       setPostRef('');
       setName('');
       setEmail('');
+      setClarityRating(null);
+      setStyleRating(null);
     }
   };
 
@@ -91,6 +95,62 @@ const BlogFeedback = () => {
                 onChange={(e) => setPostRef(e.target.value)}
                 placeholder="Title or topic of the post"
               />
+            </div>
+
+            <div>
+              <label className="blog-form-label">Clarity Rating (1-5)</label>
+              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+                {[1, 2, 3, 4, 5].map((num) => (
+                  <button
+                    key={`clarity-${num}`}
+                    type="button"
+                    onClick={() => setClarityRating(num)}
+                    style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '50%',
+                      border: `1px solid ${clarityRating === num ? 'var(--blog-accent)' : 'var(--blog-border)'}`,
+                      background: clarityRating === num ? 'var(--blog-accent)' : 'transparent',
+                      color: clarityRating === num ? '#fff' : 'var(--blog-text)',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.875rem'
+                    }}
+                  >
+                    {num}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="blog-form-label">Style Rating (1-5)</label>
+              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+                {[1, 2, 3, 4, 5].map((num) => (
+                  <button
+                    key={`style-${num}`}
+                    type="button"
+                    onClick={() => setStyleRating(num)}
+                    style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '50%',
+                      border: `1px solid ${styleRating === num ? 'var(--blog-accent)' : 'var(--blog-border)'}`,
+                      background: styleRating === num ? 'var(--blog-accent)' : 'transparent',
+                      color: styleRating === num ? '#fff' : 'var(--blog-text)',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.875rem'
+                    }}
+                  >
+                    {num}
+                  </button>
+                ))}
+              </div>
             </div>
 
             <div>

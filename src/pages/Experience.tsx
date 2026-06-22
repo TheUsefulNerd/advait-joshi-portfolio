@@ -50,6 +50,7 @@ const experiences = [
 ];
 
 import { Footer } from '@/components/Footer';
+import { SEO } from '@/components/SEO';
 
 const Experience = () => {
   const getColorClasses = (color: string) => {
@@ -63,13 +64,15 @@ const Experience = () => {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'Current': return 'bg-green-500/20 text-green-400 border-green-500/30';
-      case 'Research': return 'bg-blue/20 text-blue border-blue/30';
-      default: return 'bg-purple/20 text-purple border-purple/30';
+      case 'Current': return 'bg-green-600/10 text-green-700 border-green-600/20 dark:bg-green-500/20 dark:text-green-400 dark:border-green-500/30';
+      case 'Research': return 'bg-blue/10 text-blue-dark border-blue/20 dark:bg-blue/20 dark:text-blue dark:border-blue/30';
+      default: return 'bg-purple/10 text-purple-dark border-purple/20 dark:bg-purple/20 dark:text-purple dark:border-purple/30';
     }
   };
 
   return (
+    <>
+    <SEO title="Experience | Advait Joshi" description="Professional experience, internships and research opportunities." />
     <div className="min-h-screen pt-24 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="curtain-reveal">
@@ -191,6 +194,7 @@ const Experience = () => {
       </div>
       <Footer />
     </div>
+    </>
   );
 };
 
