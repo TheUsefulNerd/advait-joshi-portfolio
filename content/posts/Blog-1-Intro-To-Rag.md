@@ -2,7 +2,7 @@
 title: "Intro to RAG"
 slug: "RAG"
 description: "A deep dive into the architecture of Retrieval Augmented Generation."
-date: "22/06/2026"
+date: "2026-06-22"
 tags: ["RAG", "Introductory Blogs"]
 pinned: true
 ---
