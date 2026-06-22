@@ -20,8 +20,9 @@ But as the initial hype settled, developers and users ran face-first into the st
 Over time, researchers and AI labs came up with creative workarounds to tackle these flaws. One of the most effective ways the industry solved this was by introducing **Retrieval-Augmented Generation (RAG)**. 
 
 Let's dive deeper into understanding what is **Retrieval-Augmented Generation (RAG)**.
-##  Definition
+## Definition
 Let's define **RAG** in 2 ways:
+
 **1. Beginner's Introduction:**
 
 > Imagine asking an AI to answer a question without letting it search the internet or look at your company documents. It’s forced to rely entirely on its memory, which can lead to made-up facts. **Retrieval-Augmented Generation (RAG)** is like giving the AI an open-book exam. Instead of just guessing, it searches a trusted knowledge base for the right information first, and then uses those facts to write the perfect answer.
@@ -31,15 +32,18 @@ Let's define **RAG** in 2 ways:
 > While Large Language Models (LLMs) are incredibly smart, they have a major flaw: their training data is static, meaning they don’t know about your proprietary company data, recent events, or specialized documents. **RAG** solves this. It is an AI architectural design pattern that connects an LLM to external data sources. By retrieving relevant context before generating a response, RAG ensures the output is factually accurate, grounded in your specific data, and up-to-date.
 
 At its core, **RAG (Retrieval-Augmented Generation)** is a three-step pipeline:
-1.  **Retrieve:** The system searches your external documents for information relevant to the user's query.
-2.  **Augment:** It attaches these relevant facts to the user’s original prompt, giving the AI the necessary context.
-3.  **Generate:** The LLM combines its language skills with your specific data to create an intelligent, grounded response
+
+1. **Retrieve:** The system searches your external documents for information relevant to the user's query.
+2. **Augment:** It attaches these relevant facts to the user’s original prompt, giving the AI the necessary context.
+3. **Generate:** The LLM combines its language skills with your specific data to create an intelligent, grounded response
+
 ### Visualizing the Pipeline
 To see how these three steps connect in practice, it helps to map them to an architectural diagram: ![RAG Pipeline Flow Architecture](https://miro.medium.com/v2/resize:fit:1400/1*MI9WDgzoOGAH4bOnAwBKEw.jpeg) *Image source: [GOpenAI / Saurabh Bhardwaj](https://blog.gopenai.com/retrieval-augmented-generation-rag-585aa903d6bd)*
 
- This diagram highlights how data moves through the pipeline in real-time, shifting from a simple "Prompt → LLM" interaction to a structured retrieval loop. Here is exactly what happens behind the scenes when a query is made:
- 1. **The Query Phase (Input):** A user asks a question (e.g., *"What were our Q3 sales figures?"*). This prompt acts as the catalyst for the entire architecture. 
- 2. **The Retrieval Loop (External Knowledge Base):** Instead of hitting the LLM directly, the prompt goes to a specialized document store or vector database holding your proprietary files. The system looks for semantic overlap, identifying and extracting only the specific text blocks or document chunks that contain relevant facts. 
+This diagram highlights how data moves through the pipeline in real-time, shifting from a simple "Prompt → LLM" interaction to a structured retrieval loop. Here is exactly what happens behind the scenes when a query is made:
+
+1. **The Query Phase (Input):** A user asks a question (e.g., *"What were our Q3 sales figures?"*). This prompt acts as the catalyst for the entire architecture. 
+2. **The Retrieval Loop (External Knowledge Base):** Instead of hitting the LLM directly, the prompt goes to a specialized document store or vector database holding your proprietary files. The system looks for semantic overlap, identifying and extracting only the specific text blocks or document chunks that contain relevant facts. 
 3. **The Augmentation Phase (The Smart Prompt):** The system packages the raw user question along with those retrieved text chunks. It builds an expanded prompt that essentially instructs the model: *"Answer this question using only the verified context provided below."* 
 4. **The Generation Phase (Output):** This expanded, context-rich payload is handed over to the Language Model (LLM). Because the model is looking at the actual source documents, it drops the guesswork and synthesizes a direct, factually accurate response.
 
