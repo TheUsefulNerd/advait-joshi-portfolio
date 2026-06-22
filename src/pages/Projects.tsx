@@ -37,7 +37,7 @@ const projects = [
       'Achieved zero-hallucination output using Pydantic validation, query expansion synonyms, and a post-processing URL interceptor grounded strictly in the retrieved corpus.'
     ],
     demoUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/TheUsefulNerd/Support-Triage-AI-Agent',
     color: 'pink',
   },
   {

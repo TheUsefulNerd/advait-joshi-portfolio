@@ -6,6 +6,7 @@ export interface Post {
   tags: string[];
   pinned?: boolean;
   content: string; // raw markdown body
+  image?: string; // Optional cover image URL
 }
 
 // Custom lightweight frontmatter parser for the browser
@@ -71,6 +72,7 @@ const posts: Post[] = Object.values(modules).map((fileContent) => {
     date: data.date,
     tags: data.tags || [],
     pinned: data.pinned,
+    image: data.image || (content.match(/!\[.*?\]\((.*?)\)/)?.[1]),
     content,
   };
 });
