@@ -8,7 +8,7 @@ import '../../styles/blog.css';
 
 const BlogHome = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const activeCategory = searchParams.get('topic');
 
   let filteredPosts = allPosts;
