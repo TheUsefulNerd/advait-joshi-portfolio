@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { Navigation } from "@/components/Navigation";
 
 // Portfolio pages
@@ -71,7 +72,8 @@ const App = () => (
         </div>
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>
+    </QueryClientProvider>
+    <Analytics />
   </HelmetProvider>
 );
 
