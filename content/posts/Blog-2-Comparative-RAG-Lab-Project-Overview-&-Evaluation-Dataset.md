@@ -7,7 +7,7 @@ tags: ["RAG", "Introductory Blogs", "Comparative RAG Lab", "Project Based Learni
 pinned: true
 ---
 ## Introduction
-We understood the architecture of RAG, but to build a enterprise grade system, there are many more mechanics involved which play a very important role to keep your system reliable and safe, because RAG isn't a single thing you build — it's a series of design decisions you make.
+We understood the architecture of RAG, but to build a enterprise grade system, there are many more mechanics involved which play a very important role to keep your system reliable and safe, because RAG isn't a single thing you build, it's a series of design decisions you make.
 
 I am building Comparative RAG Lab to showcase the system design of an Enterprise RAG system and the design decisions taken by experimentation rather than guessing if some strategy works. 
 ## Problem Statement
@@ -38,12 +38,12 @@ Act as a Subject Matter Expert in the domain of Finance. I have attached three p
 
 Your task is to generate a golden evaluation dataset of 25-30 questions that will be used to benchmark a RAG (Retrieval-Augmented Generation) system built on these documents. These questions must span the following 6 categories:
 
--   **simple_lookup** — a single, directly stated fact retrievable from one location
--   **table_dependent** — requires reading and interpreting a financial table (e.g. revenue figures, YoY comparisons)
--   **narrative_qualitative** — requires understanding management commentary or strategic narrative, not just numbers
--   **cross_section_reasoning** — requires combining information from two different sections of the same document to derive an answer
--   **cross_document** — requires pulling information from more than one of the three attached documents
--   **no_answer_trap** — a plausible-sounding question whose answer is genuinely not disclosed anywhere in the documents, used to test whether the system hallucinates or correctly says "I don't know"
+-   **simple_lookup**: a single, directly stated fact retrievable from one location
+-   **table_dependent**: requires reading and interpreting a financial table (e.g. revenue figures, YoY comparisons)
+-   **narrative_qualitative**: requires understanding management commentary or strategic narrative, not just numbers
+-   **cross_section_reasoning**: requires combining information from two different sections of the same document to derive an answer
+-   **cross_document**: requires pulling information from more than one of the three attached documents
+-   **no_answer_trap**: a plausible-sounding question whose answer is genuinely not disclosed anywhere in the documents, used to test whether the system hallucinates or correctly says "I don't know"
 
 For every question, provide the output strictly in the following schema as a table:
 
@@ -52,9 +52,9 @@ For every question, provide the output strictly in the following schema as a tab
 **Requirements:**
 
 -   For every answer, quote the exact source excerpt and the section/page it came from so I can verify it directly against the PDF.
--   Be extra careful with table-derived numbers — flag any figure you are not fully confident about rather than guessing.
+-   Be extra careful with table-derived numbers, flag any figure you are not fully confident about rather than guessing.
 -   For cross_document questions, provide a source excerpt from each relevant document separately.
--   Do NOT generate the no_answer_trap questions — leave that category empty. I will author those manually.
+-   Do NOT generate the no_answer_trap questions. Leave that category empty. I will author those manually.
 -   Distribute questions across all three documents. Do not concentrate questions on a single table or section within any one document.
 > ##  My experience with this method:
 I gave all 3 documents and the prompt to Gemini. I hoped it would fit all 3 documents in its context window, but it couldn't. It could retrieve and generate well on the Apple and Tesla documents but couldn't retrieve more than 2 questions from the infosys document, likely a context window limitation given the Infosys report runs well over 300 pages. On top of that, several source locations in the Tesla questions were cited incorrectly, pointing to the wrong section entirely.
@@ -97,3 +97,5 @@ The full dataset is available in the [GitHub repository](https://github.com/TheU
 ## What's Next
 
 With the evaluation dataset in place, every pipeline decision from here onwards has something concrete to be measured against. The next post covers the first stage of the ingestion pipeline: document loading and parsing. It is the step most RAG tutorials skip entirely, and it silently determines the quality of everything that comes after it.
+
+If you have questions about the dataset design, category choices, or anything else covered here, please submit them using the widget below. I read every single one.
