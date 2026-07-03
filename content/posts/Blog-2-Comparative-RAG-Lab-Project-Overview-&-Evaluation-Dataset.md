@@ -1,7 +1,8 @@
 ---
 title: "Comparative RAG Lab - Project Overview & Evaluation Dataset"
-slug: "RAG"
+slug: "comparative-rag-lab-project-overview-&-evaluation-dataset"
 description: "Before writing a single line of pipeline code, here's how I designed the evaluation dataset that every comparison in this series will be scored against."
+date: "2026-07-03"
 tags: ["RAG", "Introductory Blogs", "Comparative RAG Lab", "Project Based Learning" ]
 pinned: true
 ---
