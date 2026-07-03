@@ -147,6 +147,20 @@ const BlogPost = () => {
               <ReactMarkdown 
                 remarkPlugins={[remarkGfm]} 
                 rehypePlugins={[rehypeSlug]}
+                components={{
+                  a: ({ href, children, ...props }) => {
+                    const isExternal = href?.startsWith('http://') || href?.startsWith('https://');
+                    return (
+                      <a
+                        href={href}
+                        {...props}
+                        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      >
+                        {children}
+                      </a>
+                    );
+                  },
+                }}
               >
                 {post.content}
               </ReactMarkdown>
